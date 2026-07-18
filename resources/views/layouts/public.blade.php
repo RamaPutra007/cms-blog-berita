@@ -7,6 +7,8 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>@yield('title','Sudiang Info')</title>
 
     @vite(['resources/css/app.css','resources/js/app.js'])
@@ -15,15 +17,15 @@
 
 <body class="bg-gray-50 font-sans">
 
-    @include('partials.navbar')
+    @include('partial.navbar')
 
-    <main>
+    <main class="min-h-screen">
 
         @yield('content')
 
     </main>
 
-    @include('partials.footer')
+    @include('partial.footer')
 
 </body>
 

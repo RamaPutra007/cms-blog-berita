@@ -27,15 +27,15 @@
             </a>
 
             <div class="hidden md:flex gap-8">
-
                 <a href="{{ route('home') }}">Beranda</a>
 
                 <a href="{{ route('berita.index') }}">Berita</a>
 
+                <a href="{{ route('blog.index') }}">Blog</a>
+
                 <a href="{{ route('kategori.index') }}">Kategori</a>
 
                 <a href="{{ route('tentang') }}">Tentang</a>
-
             </div>
 
             <div>
