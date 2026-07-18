@@ -1,19 +1,17 @@
-<nav class="bg-white shadow sticky top-0 z-50">
+<nav x-data="{ open: false }" class="bg-white shadow sticky top-0 z-50">
 
     <div class="max-w-7xl mx-auto px-6">
 
         <div class="flex justify-between items-center h-20">
 
+            <!-- Logo -->
             <a href="{{ route('home') }}" class="flex items-center gap-3">
 
                 <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold">
-
                     SI
-
                 </div>
 
                 <div>
-
                     <h1 class="font-bold text-xl">
                         Sudiang Info
                     </h1>
@@ -21,46 +19,110 @@
                     <p class="text-xs text-gray-500">
                         Informasi Terpercaya
                     </p>
-
                 </div>
 
             </a>
 
-            <div class="hidden md:flex gap-8">
-                <a href="{{ route('home') }}">Beranda</a>
+            <!-- Menu Desktop -->
+            <div class="hidden md:flex items-center gap-8">
 
-                <a href="{{ route('berita.index') }}">Berita</a>
+                <a href="{{ route('home') }}" class="hover:text-blue-600 transition">
+                    Beranda
+                </a>
 
-                <a href="{{ route('blog.index') }}">Blog</a>
+                <a href="{{ route('berita.index') }}" class="hover:text-blue-600 transition">
+                    Berita
+                </a>
 
-                <a href="{{ route('kategori.index') }}">Kategori</a>
+                <a href="{{ route('blog.index') }}" class="hover:text-blue-600 transition">
+                    Blog
+                </a>
 
-                <a href="{{ route('tentang') }}">Tentang</a>
+                <a href="{{ route('kategori.index') }}" class="hover:text-blue-600 transition">
+                    Kategori
+                </a>
+
+                <a href="{{ route('tentang') }}" class="hover:text-blue-600 transition">
+                    Tentang
+                </a>
+
             </div>
 
-            <div>
+            <!-- Tombol Login -->
+            <div class="hidden md:block">
 
                 @guest
 
+                    <a href="{{ route('login') }}"
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg">
+
+                        Login
+
+                    </a>
+
+                @else
+
+                    <a href="{{ route('dashboard') }}"
+                        class="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg">
+
+                        Dashboard
+
+                    </a>
+
+                @endguest
+
+            </div>
+
+            <!-- Hamburger -->
+            <button
+                @click="open = !open"
+                class="md:hidden">
+
+                ☰
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Mobile Menu -->
+    <div
+        x-show="open"
+        x-transition
+        class="md:hidden bg-white border-t">
+
+        <a href="{{ route('home') }}" class="block px-6 py-3">Beranda</a>
+
+        <a href="{{ route('berita.index') }}" class="block px-6 py-3">Berita</a>
+
+        <a href="{{ route('blog.index') }}" class="block px-6 py-3">Blog</a>
+
+        <a href="{{ route('kategori.index') }}" class="block px-6 py-3">Kategori</a>
+
+        <a href="{{ route('tentang') }}" class="block px-6 py-3">Tentang</a>
+
+        <div class="p-6 border-t">
+
+            @guest
+
                 <a href="{{ route('login') }}"
-                    class="bg-blue-600 text-white px-6 py-3 rounded-lg">
+                    class="block text-center bg-blue-600 text-white py-3 rounded-lg">
 
                     Login
 
                 </a>
 
-                @else
+            @else
 
                 <a href="{{ route('dashboard') }}"
-                    class="bg-blue-600 text-white px-6 py-3 rounded-lg">
+                    class="block text-center bg-green-600 text-white py-3 rounded-lg">
 
                     Dashboard
 
                 </a>
 
-                @endguest
-
-            </div>
+            @endguest
 
         </div>
 
