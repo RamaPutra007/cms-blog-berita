@@ -4,10 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-
 class Berita extends Model
 {
-
 
     protected $fillable = [
 
@@ -23,18 +21,17 @@ class Berita extends Model
 
 
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
-
-
     public function kategori()
     {
         return $this->belongsTo(Kategori::class);
     }
 
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
 
     /*

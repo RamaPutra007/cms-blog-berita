@@ -4,205 +4,35 @@
 
 @section('content')
 
-<!-- Hero -->
-<section class="bg-gradient-to-br from-blue-50 to-slate-100 py-20">
 
-    <div class="max-w-7xl mx-auto px-6">
+    {{-- HERO --}}
+    <section class="bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-16 md:py-24">
 
-        <span class="uppercase tracking-widest text-blue-600 font-semibold">
-            Tentang Kami
-        </span>
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
-        <h1 class="text-5xl font-bold mt-3 text-gray-900">
-            Tentang Sudiang Info
-        </h1>
+            <div class="max-w-4xl">
 
-        <p class="mt-6 text-lg text-gray-600 max-w-3xl">
-            Sudiang Info merupakan portal berita dan blog digital yang
-            menyajikan informasi terpercaya, artikel edukatif,
-            serta berbagai berita terbaru mengenai masyarakat,
-            pendidikan, teknologi, ekonomi, olahraga, dan berbagai
-            peristiwa lainnya.
-        </p>
+                <span class="inline-flex px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold">
+                    TENTANG KAMI
+                </span>
 
-    </div>
 
-</section>
+                <h1 class="mt-6 text-4xl sm:text-5xl lg:text-6xl font-black leading-tight text-gray-900">
 
-<!-- Tentang -->
-<section class="py-20 bg-white">
+                    Tentang
+                    <span class="text-blue-600">
+                        Sudiang Info
+                    </span>
 
-    <div class="max-w-7xl mx-auto px-6">
+                </h1>
 
-        <div class="bg-white rounded-3xl shadow-xl p-10">
 
-            <h2 class="text-center text-5xl font-black text-blue-600 mb-14">
+                <p class="mt-6 text-base sm:text-lg text-gray-600 leading-8 max-w-3xl">
 
-                Menyajikan Informasi Terpercaya
-                untuk Semua
-
-            </h2>
-
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-
-                <div>
-
-                    <img
-                        src="https://images.unsplash.com/photo-1495020689067-958852a7765e?w=900"
-                        class="rounded-3xl shadow-lg w-full"
-                        alt="Tentang Sudiang Info">
-
-                </div>
-
-                <div class="space-y-6 text-gray-700 leading-8 text-lg">
-
-                    <p>
-
-                        <strong>Sudiang Info</strong> adalah portal berita
-                        sekaligus media blog yang bertujuan memberikan
-                        informasi yang cepat, akurat, dan terpercaya kepada
-                        masyarakat.
-
-                    </p>
-
-                    <p>
-
-                        Kami menghadirkan berbagai informasi mengenai
-                        <strong>berita terkini, pendidikan, teknologi,
-                        pemerintahan, ekonomi, olahraga, budaya,
-                        hingga kegiatan masyarakat</strong>
-                        dalam satu platform yang mudah diakses.
-
-                    </p>
-
-                    <p>
-
-                        Selain berita harian, Sudiang Info juga menyediakan
-                        <strong>artikel blog</strong> yang membahas berbagai
-                        topik edukatif, tutorial, opini, dan informasi
-                        menarik yang dapat menambah wawasan pembaca.
-
-                    </p>
-
-                    <p>
-
-                        Seluruh konten yang diterbitkan melewati proses
-                        penyuntingan sehingga informasi yang diterima
-                        pembaca tetap berkualitas dan dapat dipercaya.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- Blog & Berita -->
-<section class="py-20 bg-slate-50">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div class="text-center mb-14">
-
-            <h2 class="text-4xl font-bold">
-
-                Apa yang Kami Sajikan?
-
-            </h2>
-
-            <p class="text-gray-500 mt-4">
-
-                Sudiang Info tidak hanya menghadirkan berita,
-                tetapi juga artikel blog yang bermanfaat.
-
-            </p>
-
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-            <div class="bg-white rounded-2xl shadow p-8">
-
-                <div class="text-5xl mb-5">
-                    📰
-                </div>
-
-                <h3 class="font-bold text-xl mb-3">
-
-                    Berita Terbaru
-
-                </h3>
-
-                <p class="text-gray-600">
-
-                    Informasi nasional maupun daerah yang selalu diperbarui.
-
-                </p>
-
-            </div>
-
-            <div class="bg-white rounded-2xl shadow p-8">
-
-                <div class="text-5xl mb-5">
-                    ✍️
-                </div>
-
-                <h3 class="font-bold text-xl mb-3">
-
-                    Blog
-
-                </h3>
-
-                <p class="text-gray-600">
-
-                    Artikel, tutorial, opini, dan informasi menarik yang
-                    memberikan wawasan baru.
-
-                </p>
-
-            </div>
-
-            <div class="bg-white rounded-2xl shadow p-8">
-
-                <div class="text-5xl mb-5">
-                    📂
-                </div>
-
-                <h3 class="font-bold text-xl mb-3">
-
-                    Kategori
-
-                </h3>
-
-                <p class="text-gray-600">
-
-                    Semua artikel dikelompokkan berdasarkan kategori agar
-                    mudah ditemukan.
-
-                </p>
-
-            </div>
-
-            <div class="bg-white rounded-2xl shadow p-8">
-
-                <div class="text-5xl mb-5">
-                    🌐
-                </div>
-
-                <h3 class="font-bold text-xl mb-3">
-
-                    Informasi Publik
-
-                </h3>
-
-                <p class="text-gray-600">
-
-                    Menjadi media informasi yang bermanfaat bagi masyarakat.
+                    Sudiang Info merupakan portal berita dan blog digital
+                    yang menyajikan informasi terpercaya, artikel edukatif,
+                    serta berita terbaru mengenai masyarakat, pendidikan,
+                    teknologi, ekonomi, olahraga, dan berbagai informasi menarik lainnya.
 
                 </p>
 
@@ -210,61 +40,262 @@
 
         </div>
 
-    </div>
+    </section>
 
-</section>
 
-<!-- Visi & Misi -->
-<section class="py-20 bg-white">
 
-    <div class="max-w-7xl mx-auto px-6">
 
-        <div class="grid lg:grid-cols-2 gap-10">
 
-            <div class="bg-blue-600 rounded-3xl p-10 text-white">
+    {{-- ABOUT --}}
+    <section class="py-16 md:py-24 bg-white">
 
-                <h3 class="text-3xl font-bold mb-5">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
-                    Visi
+            <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-6 md:p-12">
 
-                </h3>
 
-                <p class="leading-8">
+                <h2 class="text-center text-3xl md:text-5xl font-black text-blue-600 leading-tight mb-10 md:mb-14">
 
-                    Menjadi portal berita dan blog terpercaya yang
-                    memberikan informasi berkualitas bagi masyarakat
-                    Indonesia.
+                    Menyajikan Informasi Terpercaya
+                    <br class="hidden md:block">
+                    Untuk Semua
 
-                </p>
+                </h2>
+
+
+
+                <div class="grid lg:grid-cols-2 gap-10 md:gap-14 items-center">
+
+
+                    <div>
+
+                        <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?w=900"
+                            class="rounded-3xl shadow-xl w-full h-72 md:h-[450px] object-cover hover:scale-105 transition duration-500"
+                            alt="Sudiang Info">
+
+                    </div>
+
+
+
+                    <div class="space-y-5 text-gray-700 text-base md:text-lg leading-8">
+
+
+                        <p>
+                            <strong>Sudiang Info</strong> adalah portal berita dan media blog yang bertujuan memberikan
+                            informasi cepat, akurat, dan terpercaya kepada masyarakat.
+                        </p>
+
+
+                        <p>
+                            Kami menghadirkan informasi mengenai
+                            <strong>
+                                berita terkini, pendidikan, teknologi, pemerintahan, ekonomi, olahraga, budaya, dan kegiatan
+                                masyarakat.
+                            </strong>
+                        </p>
+
+
+                        <p>
+                            Selain berita harian, Sudiang Info juga menyediakan artikel blog berupa tutorial, edukasi,
+                            opini, dan informasi menarik untuk menambah wawasan pembaca.
+                        </p>
+
+
+                        <p>
+                            Setiap konten melalui proses penyuntingan agar informasi yang diterima pembaca tetap berkualitas
+                            dan terpercaya.
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
 
             </div>
 
-            <div class="bg-gray-100 rounded-3xl p-10">
-
-                <h3 class="text-3xl font-bold mb-5">
-
-                    Misi
-
-                </h3>
-
-                <ul class="space-y-4 text-gray-700">
-
-                    <li>✔ Menyajikan berita yang akurat dan terpercaya.</li>
-
-                    <li>✔ Memberikan artikel blog yang edukatif.</li>
-
-                    <li>✔ Mendukung penyebaran informasi positif.</li>
-
-                    <li>✔ Menjadi media informasi masyarakat.</li>
-
-                </ul>
-
-            </div>
 
         </div>
 
-    </div>
 
-</section>
+    </section>
+
+
+
+
+
+    {{-- FITUR --}}
+    <section class="py-16 md:py-24 bg-gray-50">
+
+
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+
+
+            <div class="text-center max-w-3xl mx-auto mb-12">
+
+
+                <h2 class="text-3xl md:text-4xl font-black text-gray-900">
+                    Apa Yang Kami Sajikan?
+                </h2>
+
+
+                <p class="mt-4 text-gray-500">
+                    Sudiang Info menghadirkan berita, artikel, dan informasi bermanfaat dalam satu platform.
+                </p>
+
+
+            </div>
+
+
+
+
+            @php
+
+                $features = [
+                    [
+                        'icon' => '📰',
+                        'title' => 'Berita Terbaru',
+                        'text' => 'Informasi nasional maupun daerah yang selalu diperbarui.',
+                    ],
+
+                    [
+                        'icon' => '✍️',
+                        'title' => 'Blog Edukatif',
+                        'text' => 'Artikel tutorial, opini, dan informasi menarik.',
+                    ],
+
+                    [
+                        'icon' => '📂',
+                        'title' => 'Kategori',
+                        'text' => 'Artikel tersusun berdasarkan kategori agar mudah ditemukan.',
+                    ],
+
+                    [
+                        'icon' => '🌐',
+                        'title' => 'Informasi Publik',
+                        'text' => 'Media informasi yang bermanfaat bagi masyarakat.',
+                    ],
+                ];
+
+            @endphp
+
+
+
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+
+                @foreach ($features as $item)
+                    <div class="bg-white rounded-3xl p-7 shadow hover:shadow-xl hover:-translate-y-2 transition">
+
+
+                        <div class="text-5xl mb-5">
+                            {{ $item['icon'] }}
+                        </div>
+
+
+                        <h3 class="text-xl font-bold text-gray-900">
+                            {{ $item['title'] }}
+                        </h3>
+
+
+                        <p class="mt-3 text-gray-600 leading-7">
+                            {{ $item['text'] }}
+                        </p>
+
+
+                    </div>
+                @endforeach
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+    {{-- VISI MISI --}}
+    <section class="py-16 md:py-24 bg-white">
+
+
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+
+
+            <div class="grid lg:grid-cols-2 gap-8">
+
+
+                <div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-3xl p-8 md:p-12 text-white shadow-xl">
+
+
+                    <h3 class="text-3xl font-black mb-5">
+                        Visi
+                    </h3>
+
+
+                    <p class="leading-8 text-blue-50">
+                        Menjadi portal berita dan blog terpercaya yang memberikan informasi berkualitas bagi masyarakat
+                        Indonesia.
+                    </p>
+
+
+                </div>
+
+
+
+
+
+                <div class="bg-gray-100 rounded-3xl p-8 md:p-12">
+
+
+                    <h3 class="text-3xl font-black mb-5">
+                        Misi
+                    </h3>
+
+
+                    <ul class="space-y-4 text-gray-700">
+
+
+                        <li>
+                            ✔ Menyajikan berita yang akurat dan terpercaya.
+                        </li>
+
+
+                        <li>
+                            ✔ Memberikan artikel blog yang edukatif.
+                        </li>
+
+
+                        <li>
+                            ✔ Mendukung penyebaran informasi positif.
+                        </li>
+
+
+                        <li>
+                            ✔ Menjadi media informasi masyarakat.
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
 
 @endsection

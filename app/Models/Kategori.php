@@ -8,22 +8,32 @@ class Kategori extends Model
 {
 
     protected $fillable = [
-
         'nama',
         'slug'
-
     ];
 
 
 
-    public function artikel()
+    /*
+    |--------------------------------------------------------------------------
+    | Relasi Artikel
+    |--------------------------------------------------------------------------
+    */
+
+    public function artikels()
     {
         return $this->hasMany(Artikel::class);
     }
 
 
 
-    public function berita()
+    /*
+    |--------------------------------------------------------------------------
+    | Relasi Berita
+    |--------------------------------------------------------------------------
+    */
+
+    public function beritas()
     {
         return $this->hasMany(Berita::class);
     }

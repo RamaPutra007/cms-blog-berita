@@ -2,18 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
-    /**
-     * Display the user's profile form.
-     */
+
+
     public function edit(Request $request): View
     {
         return view('profile.edit', [
@@ -21,40 +19,187 @@ class ProfileController extends Controller
         ]);
     }
 
-    /**
-     * Update the user's profile information.
-     */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
-    {
-        $request->user()->fill($request->validated());
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+
+
+
+    public function update(Request $request)
+    {
+
+
+        $user = Auth::user();
+
+
+
+        $request->validate([
+
+            'name' => [
+                'required',
+                'string',
+                'max:255'
+            ],
+
+            'email' => [
+                'required',
+                'email',
+                'max:255'
+            ],
+
+
+            'foto' => [
+                'nullable',
+                'image',
+                'max:2048'
+            ],
+
+
+            'password' => [
+                'nullable',
+                'min:8'
+            ]
+
+        ]);
+
+
+
+
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | UPDATE FOTO
+        |--------------------------------------------------------------------------
+        */
+
+
+        if ($request->hasFile('foto')) {
+
+
+            // hapus foto lama
+
+            if ($user->foto && Storage::disk('public')->exists('profile/' . $user->foto)) {
+
+
+                Storage::disk('public')->delete('profile/' . $user->foto);
+            }
+
+
+
+
+
+            // upload foto baru
+
+
+            $foto = $request
+                ->file('foto')
+                ->store('profile', 'public');
+
+
+
+            // ambil nama file saja
+
+
+            $user->foto = basename($foto);
         }
 
-        $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+
+
+
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | UPDATE DATA
+        |--------------------------------------------------------------------------
+        */
+
+
+        $user->name = $request->name;
+
+
+        $user->email = $request->email;
+
+
+
+
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | UPDATE PASSWORD
+        |--------------------------------------------------------------------------
+        */
+
+
+        if ($request->filled('password')) {
+
+
+            $user->password = Hash::make(
+                $request->password
+            );
+        }
+
+
+
+
+
+
+        $user->save();
+
+
+
+
+
+        return back()->with(
+            'success',
+            'Profil berhasil diperbarui'
+        );
     }
 
-    /**
-     * Delete the user's account.
-     */
-    public function destroy(Request $request): RedirectResponse
+
+
+
+
+
+
+
+    public function destroy(Request $request)
     {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current_password'],
+
+        $request->validate([
+
+            'password' => [
+                'required',
+                'current_password'
+            ]
+
         ]);
+
+
 
         $user = $request->user();
 
+
+
         Auth::logout();
+
+
 
         $user->delete();
 
+
+
         $request->session()->invalidate();
+
+
         $request->session()->regenerateToken();
 
-        return Redirect::to('/');
+
+
+        return redirect('/');
     }
 }
