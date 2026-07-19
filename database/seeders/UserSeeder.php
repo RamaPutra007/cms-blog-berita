@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
 
             'password' => Hash::make('password'),
 
-            'role' => 'admin',
+            'role' => 'admin'
 
         ]);
 
@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
 
             'password' => Hash::make('password'),
 
-            'role' => 'penulis',
+            'role' => 'penulis'
 
         ]);
     }

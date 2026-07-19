@@ -13,18 +13,9 @@ return new class extends Migration
 
         Schema::table('users', function (Blueprint $table) {
 
-
-            $table->enum('role', [
-
-                'admin',
-                'penulis'
-
-            ])
-                ->default('penulis')
-                ->after('password');
+            $table->string('foto')->nullable();
         });
     }
-
 
 
     public function down(): void
@@ -32,8 +23,7 @@ return new class extends Migration
 
         Schema::table('users', function (Blueprint $table) {
 
-
-            $table->dropColumn('role');
+            $table->dropColumn('foto');
         });
     }
 };

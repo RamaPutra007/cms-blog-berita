@@ -3,39 +3,24 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Komentar extends Model
 {
-    use HasFactory;
-
 
     protected $fillable = [
-        'user_id',
         'artikel_id',
+        'user_id',
         'parent_id',
-        'isi',
+        'nama',
+        'email',
+        'isi'
     ];
 
 
 
     /*
     |--------------------------------------------------------------------------
-    | User pemilik komentar
-    |--------------------------------------------------------------------------
-    */
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
-
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | Artikel yang dikomentari
+    | Artikel
     |--------------------------------------------------------------------------
     */
 
@@ -46,17 +31,28 @@ class Komentar extends Model
 
 
 
+    /*
+    |--------------------------------------------------------------------------
+    | User Admin / Penulis
+    |--------------------------------------------------------------------------
+    */
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 
 
     /*
     |--------------------------------------------------------------------------
-    | Komentar utama
+    | Reply Komentar
     |--------------------------------------------------------------------------
     */
 
-    public function parent()
+    public function replies()
     {
-        return $this->belongsTo(
+        return $this->hasMany(
             Komentar::class,
             'parent_id'
         );
@@ -64,17 +60,15 @@ class Komentar extends Model
 
 
 
-
-
     /*
     |--------------------------------------------------------------------------
-    | Balasan komentar
+    | Parent Komentar
     |--------------------------------------------------------------------------
     */
 
-    public function replies()
+    public function parent()
     {
-        return $this->hasMany(
+        return $this->belongsTo(
             Komentar::class,
             'parent_id'
         );

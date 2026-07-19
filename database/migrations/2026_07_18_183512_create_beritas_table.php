@@ -10,28 +10,50 @@ return new class extends Migration
     {
         Schema::create('beritas', function (Blueprint $table) {
 
+
             $table->id();
+
+
 
             $table->foreignId('user_id')
                 ->constrained()
                 ->cascadeOnDelete();
 
+
+
             $table->foreignId('kategori_id')
                 ->constrained('kategoris')
                 ->cascadeOnDelete();
 
+
+
             $table->string('judul');
 
-            $table->string('slug')->unique();
 
-            $table->string('gambar')->nullable();
+
+            $table->string('slug')
+                ->unique();
+
+
+
+            $table->string('gambar')
+                ->nullable();
+
+
 
             $table->longText('isi');
 
+
+
             $table->enum('status', [
+
                 'draft',
                 'publish'
-            ])->default('draft');
+
+            ])
+                ->default('draft');
+
+
 
             $table->timestamps();
         });

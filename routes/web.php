@@ -2,11 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+/*
+|--------------------------------------------------------------------------
+| PUBLIC CONTROLLER
+|--------------------------------------------------------------------------
+*/
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\KategoriController;
-use App\Http\Controllers\ProfileController;
 
 
 /*
@@ -20,7 +26,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ArtikelController as AdminArtikelController;
 use App\Http\Controllers\Admin\BeritaController as AdminBeritaController;
 use App\Http\Controllers\Admin\KategoriController as AdminKategoriController;
-use App\Http\Controllers\Admin\KomentarController;
+use App\Http\Controllers\Admin\KomentarController as AdminKomentarController;
 
 
 /*
@@ -32,13 +38,14 @@ use App\Http\Controllers\Admin\KomentarController;
 use App\Http\Controllers\Penulis\DashboardController as PenulisDashboardController;
 use App\Http\Controllers\Penulis\ArtikelController as PenulisArtikelController;
 use App\Http\Controllers\Penulis\BeritaController as PenulisBeritaController;
+use App\Http\Controllers\Penulis\KomentarController as PenulisKomentarController;
 use App\Http\Controllers\Penulis\ProfileController as PenulisProfileController;
 
 
 
 /*
 |--------------------------------------------------------------------------
-| PUBLIC
+| PUBLIC WEBSITE
 |--------------------------------------------------------------------------
 */
 
@@ -54,7 +61,7 @@ Route::get('/tentang', [HomeController::class, 'tentang'])
 
 /*
 |--------------------------------------------------------------------------
-| BLOG (ARTIKEL)
+| BLOG
 |--------------------------------------------------------------------------
 */
 
@@ -62,15 +69,19 @@ Route::get('/tentang', [HomeController::class, 'tentang'])
 Route::get(
     '/blog',
     [BlogController::class, 'index']
-)
-    ->name('blog.index');
+)->name('blog.index');
 
 
 Route::get(
-    '/blog/{artikel}',
+    '/blog/{artikel:slug}',
     [BlogController::class, 'show']
-)
-    ->name('blog.show');
+)->name('blog.show');
+
+
+Route::post(
+    '/blog/{artikel:slug}/komentar',
+    [BlogController::class, 'komentar']
+)->name('blog.komentar');
 
 
 
@@ -84,15 +95,13 @@ Route::get(
 Route::get(
     '/berita',
     [BeritaController::class, 'index']
-)
-    ->name('berita.index');
+)->name('berita.index');
 
 
 Route::get(
-    '/berita/{berita}',
+    '/berita/{berita:slug}',
     [BeritaController::class, 'show']
-)
-    ->name('berita.show');
+)->name('berita.show');
 
 
 
@@ -106,22 +115,21 @@ Route::get(
 Route::get(
     '/kategori',
     [KategoriController::class, 'index']
-)
-    ->name('kategori.index');
+)->name('kategori.index');
 
 
 Route::get(
-    '/kategori/{kategori}',
+    '/kategori/{kategori:slug}',
     [KategoriController::class, 'show']
-)
-    ->name('kategori.show');
+)->name('kategori.show');
+
 
 
 
 
 /*
 |--------------------------------------------------------------------------
-| ADMIN
+| ADMIN AREA
 |--------------------------------------------------------------------------
 */
 
@@ -136,66 +144,80 @@ Route::middleware(['auth', 'admin'])
         Route::get(
             '/dashboard',
             [AdminDashboardController::class, 'index']
-        )
-            ->name('dashboard');
+        )->name('dashboard');
 
 
 
-        // USER
+        /*
+    | CRUD
+    */
+
         Route::resource(
             'users',
             UserController::class
         );
 
 
-
-        // KATEGORI
         Route::resource(
             'kategori',
             AdminKategoriController::class
         );
 
 
-
-        // BLOG ARTIKEL
         Route::resource(
             'artikel',
             AdminArtikelController::class
         );
 
 
-
-        // BERITA
         Route::resource(
             'berita',
             AdminBeritaController::class
-        )
-            ->parameters([
-                'berita' => 'berita'
-            ]);
+        );
 
 
 
-        // KOMENTAR
-        Route::resource(
-            'komentar',
-            KomentarController::class
-        )
-            ->only([
-                'index',
-                'destroy'
-            ]);
+        /*
+    | KOMENTAR ADMIN
+    */
+
+
+        Route::get(
+            '/komentar',
+            [AdminKomentarController::class, 'index']
+        )->name('komentar.index');
+
+
+
+        Route::delete(
+            '/komentar/{komentar}',
+            [AdminKomentarController::class, 'destroy']
+        )->name('komentar.destroy');
+
 
 
         Route::post(
-            'komentar/{komentar}/reply',
-            [KomentarController::class, 'reply']
+            '/komentar/{komentar}/reply',
+            [AdminKomentarController::class, 'reply']
         )->name('komentar.reply');
+
+
+
+        Route::delete(
+            '/komentar/reply/{reply}',
+            [AdminKomentarController::class, 'destroyReply']
+        )->name('komentar.reply.destroy');
     });
+
+
+
+
+
+
 
 /*
 |--------------------------------------------------------------------------
-| PENULIS
+| PENULIS AREA
 |--------------------------------------------------------------------------
 */
 
@@ -210,12 +232,15 @@ Route::middleware(['auth', 'penulis'])
         Route::get(
             '/dashboard',
             [PenulisDashboardController::class, 'index']
-        )
-            ->name('dashboard');
+        )->name('dashboard');
 
 
 
-        // BLOG
+        /*
+    | ARTIKEL PENULIS
+    */
+
+
         Route::resource(
             'artikel',
             PenulisArtikelController::class
@@ -223,30 +248,66 @@ Route::middleware(['auth', 'penulis'])
 
 
 
-        // BERITA
+        /*
+    | BERITA PENULIS
+    */
+
+
         Route::resource(
             'berita',
             PenulisBeritaController::class
-        )
-            ->parameters([
-                'berita' => 'berita'
-            ]);
+        );
 
 
 
-        // PROFILE
+
+
+        // komentar penulis
+
+        Route::get(
+            '/komentar',
+            [PenulisKomentarController::class, 'index']
+        )->name('komentar.index');
+
+
+        Route::post(
+            '/komentar/{komentar}/reply',
+            [PenulisKomentarController::class, 'reply']
+        )->name('komentar.reply');
+
+
+        // hapus komentar artikel sendiri
+
+        Route::delete(
+            '/komentar/{komentar}',
+            [PenulisKomentarController::class, 'destroy']
+        )->name('komentar.destroy');
+
+
+        // hapus balasan sendiri
+
+        Route::delete(
+            '/komentar/reply/{reply}',
+            [PenulisKomentarController::class, 'destroyReply']
+        )->name('komentar.reply.destroy');
+
+
+        /*
+    | PROFILE PENULIS
+    */
+
+
         Route::get(
             '/profile',
             [PenulisProfileController::class, 'index']
-        )
-            ->name('profile');
+        )->name('profile');
+
 
 
         Route::put(
             '/profile',
             [PenulisProfileController::class, 'update']
-        )
-            ->name('profile.update');
+        )->name('profile.update');
     });
 
 
@@ -255,7 +316,7 @@ Route::middleware(['auth', 'penulis'])
 
 /*
 |--------------------------------------------------------------------------
-| DASHBOARD REDIRECT
+| REDIRECT DASHBOARD
 |--------------------------------------------------------------------------
 */
 
@@ -277,47 +338,6 @@ Route::middleware('auth')
     ->name('dashboard');
 
 
-
-
-Route::resource(
-    'komentar',
-    KomentarController::class
-)
-    ->only([
-        'index',
-        'destroy'
-    ]);
-/*
-|--------------------------------------------------------------------------
-| PROFILE BREEZE
-|--------------------------------------------------------------------------
-*/
-
-
-Route::middleware('auth')
-    ->group(function () {
-
-
-        Route::get(
-            '/profile',
-            [ProfileController::class, 'edit']
-        )
-            ->name('profile.edit');
-
-
-        Route::patch(
-            '/profile',
-            [ProfileController::class, 'update']
-        )
-            ->name('profile.update');
-
-
-        Route::delete(
-            '/profile',
-            [ProfileController::class, 'destroy']
-        )
-            ->name('profile.destroy');
-    });
 
 
 

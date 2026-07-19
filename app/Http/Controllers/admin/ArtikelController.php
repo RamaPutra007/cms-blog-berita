@@ -18,7 +18,10 @@ class ArtikelController extends Controller
      */
     public function index()
     {
-        $artikels = Artikel::with(['kategori', 'user'])
+        $artikels = Artikel::with([
+            'kategori',
+            'user'
+        ])
             ->latest()
             ->paginate(10);
 

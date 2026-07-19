@@ -6,41 +6,31 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-
     public function up(): void
     {
         Schema::create('komentars', function (Blueprint $table) {
 
             $table->id();
 
-
-            // user yang komentar
-            $table->foreignId('user_id')
-                ->constrained()
-                ->cascadeOnDelete();
-
-
-            // artikel tujuan komentar
             $table->foreignId('artikel_id')
                 ->constrained()
                 ->cascadeOnDelete();
 
-
-            // balasan komentar
+            // komentar utama / balasan
             $table->foreignId('parent_id')
                 ->nullable()
                 ->constrained('komentars')
                 ->cascadeOnDelete();
 
+            $table->string('nama');
 
-            // isi komentar
+            $table->string('email');
+
             $table->text('isi');
-
 
             $table->timestamps();
         });
     }
-
 
 
     public function down(): void

@@ -2,15 +2,66 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
+
 class KategoriController extends Controller
 {
+
+
     public function index()
     {
-        return view('kategori.index');
+
+        $kategoris = Kategori::withCount([
+            'artikels',
+            'beritas'
+        ])
+            ->latest()
+            ->get();
+
+
+
+        return view(
+            'kategori.index',
+            compact('kategoris')
+        );
     }
 
-    public function show($id)
+
+
+
+
+    public function show($slug)
     {
-        return view('kategori.show', compact('id'));
+
+
+        $kategori = Kategori::where('slug', $slug)
+            ->firstOrFail();
+
+
+
+        $artikels = $kategori
+            ->artikels()
+            ->where('status', 'publish')
+            ->latest()
+            ->paginate(6);
+
+
+
+        $beritas = $kategori
+            ->beritas()
+            ->where('status', 'publish')
+            ->latest()
+            ->paginate(6);
+
+
+
+        return view(
+            'kategori.show',
+            compact(
+                'kategori',
+                'artikels',
+                'beritas'
+            )
+        );
     }
 }

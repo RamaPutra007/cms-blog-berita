@@ -13,20 +13,33 @@ class KategoriSeeder extends Seeder
      */
     public function run(): void
     {
-        $kategori = [
-            'Teknologi',
-            'Pendidikan',
-            'Olahraga',
-            'Politik',
-            'Ekonomi',
-            'Kesehatan',
-        ];
+        Kategori::insert([
 
-        foreach ($kategori as $item) {
-            Kategori::create([
-                'nama' => $item,
-                'slug' => Str::slug($item),
-            ]);
-        }
+
+            [
+                'nama' => 'Teknologi',
+                'slug' => 'teknologi'
+            ],
+
+
+            [
+                'nama' => 'Pendidikan',
+                'slug' => 'pendidikan'
+            ],
+
+
+            [
+                'nama' => 'Olahraga',
+                'slug' => 'olahraga'
+            ],
+
+
+            [
+                'nama' => 'Politik',
+                'slug' => 'politik'
+            ]
+
+
+        ]);
     }
 }

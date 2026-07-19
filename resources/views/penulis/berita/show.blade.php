@@ -1,15 +1,20 @@
 @extends('layouts.penulis')
 
-@section('title', 'Detail Artikel')
+
+@section('title', 'Detail Berita')
+
 
 
 @section('content')
 
 
-    <div class="w-full max-w-6xl mx-auto">
+    <div class="max-w-6xl mx-auto space-y-6">
 
 
 
+
+
+        {{-- CARD UTAMA --}}
         <div class="
         bg-white
         rounded-3xl
@@ -19,9 +24,11 @@
 
 
 
-            {{-- GAMBAR --}}
-            @if ($artikel->gambar)
-                <img src="{{ asset('storage/' . $artikel->gambar) }}"
+
+
+            {{-- GAMBAR BERITA --}}
+            @if ($berita->gambar)
+                <img src="{{ asset('storage/' . $berita->gambar) }}"
                     class="
                 w-full
                 h-64
@@ -41,8 +48,7 @@
                 justify-center
                 text-gray-400
                 text-lg
-            ">
-
+                ">
 
                     Tidak ada gambar
 
@@ -57,15 +63,20 @@
 
 
 
+
+
+            {{-- CONTENT --}}
             <div class="
             p-5
             sm:p-8
+            md:p-10
         ">
 
 
 
 
-                {{-- INFO --}}
+
+                {{-- BADGE --}}
                 <div
                     class="
                 flex
@@ -73,6 +84,7 @@
                 gap-3
                 mb-6
             ">
+
 
 
 
@@ -86,35 +98,12 @@
                     text-blue-700
                     text-sm
                     font-semibold
-                ">
+                    ">
 
-                        📂 {{ $artikel->kategori->nama ?? '-' }}
-
-                    </span>
-
-
-
-
-
-
-                    {{-- PENULIS --}}
-                    <span
-                        class="
-                    px-4
-                    py-2
-                    rounded-full
-                    bg-purple-100
-                    text-purple-700
-                    text-sm
-                    font-semibold
-                ">
-
-
-                        👤 {{ $artikel->user->name ?? '-' }}
-
+                        📂
+                        {{ optional($berita->kategori)->nama ?? 'Tanpa Kategori' }}
 
                     </span>
-
 
 
 
@@ -123,7 +112,7 @@
 
 
                     {{-- STATUS --}}
-                    @if ($artikel->status == 'publish')
+                    @if ($berita->status == 'publish')
                         <span
                             class="
                         px-4
@@ -133,7 +122,7 @@
                         text-green-700
                         text-sm
                         font-semibold
-                    ">
+                        ">
 
                             ✅ Publish
 
@@ -148,7 +137,7 @@
                         text-yellow-700
                         text-sm
                         font-semibold
-                    ">
+                        ">
 
                             📝 Draft
 
@@ -157,8 +146,9 @@
 
 
 
-                </div>
 
+
+                </div>
 
 
 
@@ -176,12 +166,10 @@
                 md:text-4xl
                 font-bold
                 text-gray-800
-                mb-5
                 leading-tight
-            ">
+                ">
 
-
-                    {{ $artikel->judul }}
+                    {{ $berita->judul }}
 
 
                 </h1>
@@ -194,9 +182,10 @@
 
 
 
-                {{-- TANGGAL --}}
+                {{-- INFO --}}
                 <div
                     class="
+                mt-5
                 flex
                 flex-col
                 sm:flex-row
@@ -204,26 +193,26 @@
                 sm:gap-6
                 text-sm
                 text-gray-500
-                mb-6
-            ">
+                ">
 
 
                     <span>
 
-                        📅 Dibuat:
-                        {{ $artikel->created_at->format('d M Y H:i') }}
+                        📅
+
+                        {{ $berita->created_at ? $berita->created_at->format('d M Y H:i') : '-' }}
 
                     </span>
 
 
 
+
                     <span>
 
-                        🔄 Update:
-                        {{ $artikel->updated_at->format('d M Y H:i') }}
+                        👤
+                        {{ optional($berita->user)->name ?? '-' }}
 
                     </span>
-
 
 
                 </div>
@@ -233,7 +222,8 @@
 
 
 
-                <hr class="mb-6">
+
+                <hr class="my-8">
 
 
 
@@ -241,7 +231,7 @@
 
 
 
-                {{-- ISI --}}
+                {{-- ISI BERITA --}}
                 <div
                     class="
                 text-gray-700
@@ -249,13 +239,13 @@
                 text-base
                 sm:text-lg
                 whitespace-pre-line
-            ">
+                ">
 
-
-                    {!! nl2br(e($artikel->isi)) !!}
+                    {!! nl2br(e($berita->isi)) !!}
 
 
                 </div>
+
 
 
 
@@ -278,19 +268,21 @@
 
 
 
+
         {{-- BUTTON --}}
         <div class="
-        mt-8
         flex
         flex-col
         sm:flex-row
         gap-3
-    ">
+        ">
+
+
 
 
 
             {{-- EDIT --}}
-            <a href="{{ route('penulis.artikel.edit', $artikel) }}"
+            <a href="{{ route('penulis.berita.edit', $berita) }}"
                 class="
             w-full
             sm:w-auto
@@ -308,6 +300,7 @@
 
                 ✏ Edit
 
+
             </a>
 
 
@@ -316,8 +309,10 @@
 
 
 
+
+
             {{-- KEMBALI --}}
-            <a href="{{ route('penulis.artikel.index') }}"
+            <a href="{{ route('penulis.berita.index') }}"
                 class="
             w-full
             sm:w-auto
@@ -333,7 +328,6 @@
             transition
             ">
 
-
                 ← Kembali
 
 
@@ -346,16 +340,17 @@
 
 
 
-            {{-- HAPUS --}}
-            <form action="{{ route('penulis.artikel.destroy', $artikel) }}" method="POST"
-                onsubmit="return confirm('Hapus artikel ini?')" class="w-full sm:w-auto">
+
+            {{-- DELETE --}}
+            <form action="{{ route('penulis.berita.destroy', $berita) }}" method="POST" class="w-full sm:w-auto">
 
                 @csrf
+
                 @method('DELETE')
 
 
 
-                <button
+                <button onclick="return confirm('Yakin ingin menghapus berita ini?')"
                     class="
                 w-full
                 px-6
@@ -369,11 +364,11 @@
                 transition
                 ">
 
-
                     🗑 Hapus
 
 
                 </button>
+
 
 
             </form>
@@ -381,7 +376,10 @@
 
 
 
+
+
         </div>
+
 
 
 

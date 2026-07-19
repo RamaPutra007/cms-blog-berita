@@ -2,33 +2,22 @@
 
 namespace Database\Seeders;
 
-
 use Illuminate\Database\Seeder;
 use App\Models\Komentar;
-use App\Models\User;
-use App\Models\Artikel;
-
-
 
 class KomentarSeeder extends Seeder
 {
 
-
     public function run(): void
     {
 
+        Komentar::create([
 
-        $user = User::first();
+            'artikel_id' => 1,
 
-        $artikel = Artikel::first();
+            'nama' => 'Rama',
 
-
-
-        $komentar = Komentar::create([
-
-            'user_id' => $user->id,
-
-            'artikel_id' => $artikel->id,
+            'email' => 'rama@gmail.com',
 
             'isi' => 'Artikel ini sangat menarik'
 
@@ -36,17 +25,15 @@ class KomentarSeeder extends Seeder
 
 
 
-
-
         Komentar::create([
 
-            'user_id' => $user->id,
+            'artikel_id' => 1,
 
-            'artikel_id' => $artikel->id,
+            'nama' => 'Budi',
 
-            'parent_id' => $komentar->id,
+            'email' => 'budi@gmail.com',
 
-            'isi' => 'Terima kasih atas komentarnya'
+            'isi' => 'Informasi yang sangat bermanfaat'
 
         ]);
     }

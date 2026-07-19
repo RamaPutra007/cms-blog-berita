@@ -2,42 +2,51 @@
 
 namespace Database\Seeders;
 
-use App\Models\Artikel;
-use App\Models\User;
-use App\Models\Kategori;
 use Illuminate\Database\Seeder;
+use App\Models\Artikel;
 use Illuminate\Support\Str;
 
 class ArtikelSeeder extends Seeder
 {
     public function run(): void
     {
-        $user = User::first();
-        $kategori = Kategori::first();
 
-        if (!$user || !$kategori) {
-            return;
-        }
+        Artikel::create([
 
-        for ($i = 1; $i <= 10; $i++) {
+            'user_id' => 1,
 
-            Artikel::create([
+            'kategori_id' => 1,
 
-                'user_id' => $user->id,
+            'judul' => 'Artikel 1',
 
-                'kategori_id' => $kategori->id,
+            'slug' => Str::slug('Artikel 1'),
 
-                'judul' => "Artikel $i",
+            'isi' => 'Ini adalah isi artikel pertama',
 
-                'slug' => Str::slug("Artikel $i"),
+            'gambar' => null,
 
-                'gambar' => null,
+            'status' => 'publish'
 
-                'isi' => "Ini adalah isi artikel ke-$i.",
+        ]);
 
-                'status' => 'publish',
 
-            ]);
-        }
+
+        Artikel::create([
+
+            'user_id' => 1,
+
+            'kategori_id' => 2,
+
+            'judul' => 'Artikel 2',
+
+            'slug' => Str::slug('Artikel 2'),
+
+            'isi' => 'Ini adalah isi artikel kedua',
+
+            'gambar' => null,
+
+            'status' => 'publish'
+
+        ]);
     }
 }

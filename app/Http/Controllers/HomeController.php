@@ -2,17 +2,50 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Artikel;
+use App\Models\Berita;
+use App\Models\Kategori;
 
 class HomeController extends Controller
 {
+
     public function index()
     {
-        return view('home');
+
+        $kategori = Kategori::latest()
+            ->get();
+
+
+        $berita = Berita::with('kategori')
+            ->where('status', 'publish')
+            ->latest()
+            ->take(6)
+            ->get();
+
+
+
+        $artikel = Artikel::with('kategori')
+            ->where('status', 'publish')
+            ->latest()
+            ->take(6)
+            ->get();
+
+
+
+        return view('home', compact(
+            'kategori',
+            'berita',
+            'artikel'
+        ));
     }
 
+
+
+
+
     public function tentang()
-    {   
+    {
+
         return view('tentang');
     }
 }

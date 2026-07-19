@@ -1,19 +1,14 @@
-@extends('layouts.admin')
+@extends('layouts.penulis')
 
-
-@section('title', 'Data Berita')
-
+@section('title', 'Berita Saya')
 
 
 @section('content')
 
-
     <div class="max-w-7xl mx-auto space-y-6">
 
 
-
         {{-- HEADER --}}
-
         <div class="
 bg-gradient-to-r
 from-blue-600
@@ -39,34 +34,25 @@ gap-5
                 <div>
 
                     <h1 class="text-3xl font-bold">
-
-                        📰 Data Berita
-
+                        📰 Berita Saya
                     </h1>
 
-
                     <p class="text-blue-100 mt-2">
-
-                        Kelola seluruh berita website
-
+                        Kelola berita yang kamu buat
                     </p>
-
 
                 </div>
 
 
 
-
-
-
-                <a href="{{ route('admin.berita.create') }}"
+                <a href="{{ route('penulis.berita.create') }}"
                     class="
-px-6
-py-3
+px-6 py-3
 rounded-xl
 bg-white
 text-blue-700
 font-semibold
+text-center
 shadow
 hover:bg-gray-100
 ">
@@ -78,10 +64,7 @@ hover:bg-gray-100
 
             </div>
 
-
         </div>
-
-
 
 
 
@@ -91,9 +74,9 @@ hover:bg-gray-100
         @if (session('success'))
             <div class="
 bg-green-100
+text-green-700
 border
 border-green-300
-text-green-700
 p-4
 rounded-xl
 ">
@@ -116,13 +99,7 @@ rounded-xl
 
             <form>
 
-
-                <div class="
-flex
-flex-col
-sm:flex-row
-gap-3
-">
+                <div class="flex flex-col sm:flex-row gap-3">
 
 
                     <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari berita..."
@@ -163,8 +140,7 @@ text-white
 
 
 
-
-        {{-- CARD LIST --}}
+        {{-- LIST --}}
 
         <div class="
 grid
@@ -176,9 +152,7 @@ gap-6
 
 
 
-
-
-            @forelse($beritas as $item)
+            @forelse($berita as $item)
                 <div class="
 bg-white
 rounded-3xl
@@ -188,11 +162,6 @@ hover:shadow-2xl
 transition
 ">
 
-
-
-
-
-                    {{-- GAMBAR --}}
 
 
                     @if ($item->gambar)
@@ -209,15 +178,12 @@ flex
 items-center
 justify-center
 text-gray-400
-text-3xl
 ">
 
-                            📰
+                            Tidak ada gambar
 
                         </div>
                     @endif
-
-
 
 
 
@@ -227,75 +193,51 @@ text-3xl
 
 
 
-
-
-
-                        {{-- BADGE --}}
-
-
-                        <div class="
-flex
-flex-wrap
-gap-2
-mb-3
-">
-
+                        <div class="flex flex-wrap gap-2 mb-3">
 
 
                             @if ($item->status == 'publish')
                                 <span class="
-px-3
-py-1
+px-3 py-1
 rounded-full
 bg-green-100
 text-green-700
 text-xs
 ">
 
-                                    ✅ Publish
+                                    Publish
 
                                 </span>
                             @else
                                 <span class="
-px-3
-py-1
+px-3 py-1
 rounded-full
 bg-yellow-100
 text-yellow-700
 text-xs
 ">
 
-                                    📝 Draft
+                                    Draft
 
                                 </span>
                             @endif
 
 
 
-
-
-
-
                             <span class="
-px-3
-py-1
+px-3 py-1
 rounded-full
 bg-blue-100
 text-blue-700
 text-xs
 ">
 
-                                📂 {{ $item->kategori->nama ?? '-' }}
+                                {{ $item->kategori->nama ?? '-' }}
 
                             </span>
 
 
-
                         </div>
-
-
-
-
 
 
 
@@ -312,61 +254,17 @@ text-gray-800
 
 
 
-
-
-
-
-
                         <p class="
 text-gray-500
 mt-3
 line-clamp-3
 ">
 
-                            {{ Str::limit(strip_tags($item->isi), 120) }}
+                            {{ Str::limit($item->isi, 120) }}
 
                         </p>
 
 
-
-
-
-
-
-
-
-                        <div class="
-mt-4
-text-sm
-text-gray-400
-space-y-1
-">
-
-
-                            <p>
-
-                                👤 {{ $item->user->name ?? '-' }}
-
-                            </p>
-
-
-                            <p>
-
-                                📅 {{ optional($item->created_at)->format('d M Y') }}
-
-                            </p>
-
-
-                        </div>
-
-
-
-
-
-
-
-
-                        {{-- ACTION --}}
 
 
                         <div class="
@@ -377,70 +275,53 @@ mt-5
 ">
 
 
-
-
-
-                            <a href="{{ route('admin.berita.show', $item) }}"
+                            <a href="{{ route('penulis.berita.show', $item) }}"
                                 class="
-px-4
-py-2
+px-4 py-2
 rounded-xl
 bg-blue-600
 text-white
 text-sm
 ">
 
-                                👁 Detail
+                                Detail
 
                             </a>
 
 
 
-
-
-
-
-
-                            <a href="{{ route('admin.berita.edit', $item) }}"
+                            <a href="{{ route('penulis.berita.edit', $item) }}"
                                 class="
-px-4
-py-2
+px-4 py-2
 rounded-xl
 bg-yellow-500
 text-white
 text-sm
 ">
 
-                                ✏ Edit
+                                Edit
 
                             </a>
 
 
 
 
-
-
-
-
-                            <form action="{{ route('admin.berita.destroy', $item) }}" method="POST"
-                                onsubmit="return confirm('Hapus berita ini?')">
-
+                            <form action="{{ route('penulis.berita.destroy', $item) }}" method="POST"
+                                onsubmit="return confirm('Hapus berita?')">
 
                                 @csrf
-
                                 @method('DELETE')
 
 
                                 <button class="
-px-4
-py-2
+px-4 py-2
 rounded-xl
 bg-red-600
 text-white
 text-sm
 ">
 
-                                    🗑 Hapus
+                                    Hapus
 
                                 </button>
 
@@ -450,8 +331,6 @@ text-sm
 
 
                         </div>
-
-
 
 
 
@@ -465,52 +344,33 @@ text-sm
             @empty
 
 
-
                 <div class="
 col-span-full
 bg-white
 rounded-3xl
-shadow
 p-10
 text-center
-text-gray-400
 ">
 
-                    📰
-
-                    <p class="mt-3">
-
-                        Belum ada berita
-
-                    </p>
+                    Belum ada berita
 
 
                 </div>
             @endforelse
 
 
-
         </div>
 
-
-
-
-
-
-
-        {{-- PAGINATION --}}
 
 
         <div>
 
-            {{ $beritas->links() }}
+            {{ $berita->links() }}
 
         </div>
 
 
 
-
     </div>
-
 
 @endsection
