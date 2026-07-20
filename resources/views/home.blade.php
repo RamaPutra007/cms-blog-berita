@@ -262,14 +262,6 @@
 
     </section>
 
-
-
-
-
-
-
-
-
     {{-- BERITA TERBARU --}}
 
     <section id="berita" class="py-20 bg-gray-100">
@@ -296,11 +288,6 @@
 
             </div>
 
-
-
-
-
-
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
 
@@ -319,11 +306,6 @@
 
                             </div>
                         @endif
-
-
-
-
-
 
                         <div class="p-6">
 
@@ -393,14 +375,6 @@
 
     </section>
 
-
-
-
-
-
-
-
-
     {{-- ARTIKEL BLOG --}}
 
     <section class="py-20 bg-white">
@@ -419,8 +393,6 @@
 
                 </h2>
 
-
-
                 <a href="{{ route('blog.index') }}" class="text-blue-600 font-semibold">
 
                     Lihat Semua →
@@ -429,11 +401,6 @@
 
 
             </div>
-
-
-
-
-
 
             <div class="grid md:grid-cols-3 gap-8">
 
@@ -447,10 +414,6 @@
                         @if ($item->gambar)
                             <img src="{{ asset('storage/' . $item->gambar) }}" class="w-full h-52 object-cover rounded-2xl">
                         @endif
-
-
-
-
 
                         <h3 class="text-xl font-bold mt-5">
 
@@ -500,15 +463,6 @@
 
 
     </section>
-
-
-
-
-
-
-
-
-
 
     {{-- CTA --}}
 

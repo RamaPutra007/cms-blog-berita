@@ -1,49 +1,41 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>
-        @yield('title')
-    </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css">
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.js"></script>
-
+    <title>@yield('title', 'Dashboard Penulis')</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
 
+<body class="bg-slate-100">
 
-<body class="bg-gray-100">
+    {{-- Navbar Mobile --}}
+    @include('partial.penulis.navbar')
 
+    <div class="flex">
 
-    <div class="flex min-h-screen">
+        {{-- Sidebar --}}
+        @include('partial.penulis.sidebar')
 
+        {{-- Content --}}
+        <div class="flex-1 lg:ml-72 min-h-screen flex flex-col">
 
-        {{-- SIDEBAR --}}
-        @include('partial.sidebar')
+            <main class="flex-1 p-4 md:p-6">
 
+                @yield('content')
 
+            </main>
 
-        {{-- CONTENT --}}
-        <main class="flex-1 p-8">
+            @include('partial.penulis.footer')
 
-
-            @yield('content')
-
-
-        </main>
-
+        </div>
 
     </div>
-
 
 </body>
 

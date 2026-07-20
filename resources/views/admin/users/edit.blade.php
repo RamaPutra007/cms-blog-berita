@@ -1,28 +1,26 @@
 @extends('layouts.admin')
 
-@section('title','Edit Pengguna')
+@section('title', 'Edit Pengguna')
 
 @section('content')
 
-<div class="mb-6">
+    <div class="mb-6">
 
-    <h1 class="text-3xl font-bold">
+        <h1 class="text-3xl font-bold">
 
-        Edit Pengguna
+            Edit Pengguna
 
-    </h1>
+        </h1>
 
-</div>
+    </div>
 
-<form
-action="{{ route('admin.users.update',$user) }}"
-method="POST">
+    <form action="{{ route('admin.users.update', $user) }}" method="POST">
 
-@csrf
-@method('PUT')
+        @csrf
+        @method('PUT')
 
-@include('admin.users.form')
+        @include('admin.users.form')
 
-</form>
+    </form>
 
 @endsection

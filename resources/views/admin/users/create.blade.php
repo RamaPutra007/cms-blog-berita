@@ -1,27 +1,25 @@
 @extends('layouts.admin')
 
-@section('title','Tambah Pengguna')
+@section('title', 'Tambah Pengguna')
 
 @section('content')
 
-<div class="mb-6">
+    <div class="mb-6">
 
-    <h1 class="text-3xl font-bold">
+        <h1 class="text-3xl font-bold">
 
-        Tambah Pengguna
+            Tambah Pengguna
 
-    </h1>
+        </h1>
 
-</div>
+    </div>
 
-<form
-action="{{ route('admin.users.store') }}"
-method="POST">
+    <form action="{{ route('admin.users.store') }}" method="POST">
 
-@csrf
+        @csrf
 
-@include('admin.users.form')
+        @include('admin.users.form')
 
-</form>
+    </form>
 
 @endsection

@@ -2,70 +2,59 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title','Dashboard Admin')</title>
+    <title>@yield('title', 'Dashboard Admin')</title>
 
-    @vite(['resources/css/app.css','resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-slate-100">
 
-<div class="flex min-h-screen">
+    <div class="min-h-screen flex">
 
-    {{-- Sidebar --}}
-    @include('partial.sidebar')
+        {{-- SIDEBAR DESKTOP --}}
+        @include('partial.admin.sidebar')
 
-    <div class="flex-1 flex flex-col">
+        <div class="flex-1 flex flex-col lg:ml-72">
 
+            {{-- NAVBAR MOBILE --}}
+            @include('partial.admin.navbar')
 
-        {{-- Content --}}
-        <main class="flex-1 p-6">
+            <main class="flex-1 p-4 md:p-6 lg:p-8">
 
-            @if(session('success'))
-            <div class="mb-6 flex items-center gap-3
-            bg-green-100
-            border border-green-300
-            text-green-700
-            px-5 py-4
-            rounded-xl">
+                @if (session('success'))
+                    <div class="mb-6 rounded-2xl border border-green-200 bg-green-50 p-4 text-green-700">
 
+                        {{ session('success') }}
 
-                ✅
+                    </div>
+                @endif
 
-                <span>
+                @if (session('error'))
+                    <div class="mb-6 rounded-2xl border border-red-200 bg-red-50 p-4 text-red-700">
 
-                    {{ session('success') }}
+                        {{ session('error') }}
 
-                </span>
+                    </div>
+                @endif
 
+                @yield('content')
 
-            </div>
+            </main>
 
+            {{-- FOOTER --}}
+            @include('partial.admin.footer')
 
-            @endif
-
-            @if(session('error'))
-
-            <div class="mb-5 bg-red-100 border border-red-300 text-red-700 px-4 py-3 rounded-lg">
-
-                {{ session('error') }}
-
-            </div>
-
-            @endif
-            @yield('content')
-
-        </main>
-
-        {{-- Footer --}}
-        @include('partial.footer')
+        </div>
 
     </div>
-
-</div>
 
 </body>
 

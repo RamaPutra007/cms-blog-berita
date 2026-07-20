@@ -8,14 +8,11 @@
                 Nama
             </label>
 
-            <input
-                type="text"
-                name="name"
-                value="{{ old('name', $user->name ?? '') }}"
+            <input type="text" name="name" value="{{ old('name', $user->name ?? '') }}"
                 class="w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500">
 
             @error('name')
-            <small class="text-red-500">{{ $message }}</small>
+                <small class="text-red-500">{{ $message }}</small>
             @enderror
         </div>
 
@@ -25,14 +22,11 @@
                 Email
             </label>
 
-            <input
-                type="email"
-                name="email"
-                value="{{ old('email', $user->email ?? '') }}"
+            <input type="email" name="email" value="{{ old('email', $user->email ?? '') }}"
                 class="w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500">
 
             @error('email')
-            <small class="text-red-500">{{ $message }}</small>
+                <small class="text-red-500">{{ $message }}</small>
             @enderror
         </div>
 
@@ -42,13 +36,11 @@
                 Password
             </label>
 
-            <input
-                type="password"
-                name="password"
+            <input type="password" name="password"
                 class="w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500">
 
             @error('password')
-            <small class="text-red-500">{{ $message }}</small>
+                <small class="text-red-500">{{ $message }}</small>
             @enderror
         </div>
 
@@ -58,9 +50,7 @@
                 Konfirmasi Password
             </label>
 
-            <input
-                type="password"
-                name="password_confirmation"
+            <input type="password" name="password_confirmation"
                 class="w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500">
         </div>
 
@@ -71,21 +61,17 @@
                 Role
             </label>
 
-            <select
-                name="role"
-                class="w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500">
+            <select name="role" class="w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring-blue-500">
 
                 <option value="">-- Pilih Role --</option>
 
-                <option value="admin"
-                    @selected(old('role',$user->role ?? '')=='admin')>
+                <option value="admin" @selected(old('role', $user->role ?? '') == 'admin')>
 
                     Admin
 
                 </option>
 
-                <option value="penulis"
-                    @selected(old('role',$user->role ?? '')=='penulis')>
+                <option value="penulis" @selected(old('role', $user->role ?? '') == 'penulis')>
 
                     Penulis
 
@@ -94,7 +80,7 @@
             </select>
 
             @error('role')
-            <small class="text-red-500">{{ $message }}</small>
+                <small class="text-red-500">{{ $message }}</small>
             @enderror
 
         </div>
@@ -103,16 +89,13 @@
 
     <div class="mt-8 flex gap-3">
 
-        <button
-            type="submit"
-            class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition">
+        <button type="submit" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition">
 
             Simpan
 
         </button>
 
-        <a
-            href="{{ route('admin.users.index') }}"
+        <a href="{{ route('admin.users.index') }}"
             class="px-6 py-3 bg-gray-300 hover:bg-gray-400 rounded-lg transition">
 
             Kembali
