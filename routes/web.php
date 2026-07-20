@@ -173,7 +173,9 @@ Route::middleware(['auth', 'admin'])
         Route::resource(
             'berita',
             AdminBeritaController::class
-        );
+        )->parameters([
+            'berita' => 'berita'
+        ]);
 
 
 
@@ -256,7 +258,9 @@ Route::middleware(['auth', 'penulis'])
         Route::resource(
             'berita',
             PenulisBeritaController::class
-        );
+        )->parameters([
+            'berita' => 'berita'
+        ]);
 
 
 

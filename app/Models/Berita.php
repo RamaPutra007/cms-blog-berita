@@ -44,4 +44,9 @@ class Berita extends Model
     {
         return $this->hasMany(Komentar::class);
     }
+
+    public function getRouteKeyName()
+    {
+        return 'id';
+    }
 }

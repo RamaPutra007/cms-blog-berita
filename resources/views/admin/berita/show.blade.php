@@ -1,168 +1,449 @@
 @extends('layouts.admin')
 
+
 @section('title', 'Detail Berita')
+
+
 
 @section('content')
 
-<div class="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-
-    <div>
-
-        <h1 class="text-3xl font-bold text-gray-800">
-            Detail Berita
-        </h1>
-
-        <p class="text-gray-500 mt-1">
-            Informasi lengkap berita.
-        </p>
-
-    </div>
-
-    <div class="flex gap-3">
-
-        <a href="{{ route('admin.berita.edit', $berita) }}"
-            class="px-5 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg shadow hover:shadow-lg transition-all duration-300">
-
-            ✏ Edit
-
-        </a>
-
-        <a href="{{ route('admin.berita.index') }}"
-            class="px-5 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg shadow hover:shadow-lg transition-all duration-300">
-
-            ← Kembali
-
-        </a>
-
-    </div>
-
-</div>
 
 
-<div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-
-    {{-- Gambar --}}
-    @if($berita->gambar)
-
-    <img
-        src="{{ asset('storage/'.$berita->gambar) }}"
-        class="w-full h-80 object-cover hover:scale-105 transition duration-500">
-
-    @else
-
-    <div class="h-80 bg-gray-100 flex items-center justify-center text-gray-400 text-xl">
-
-        Tidak ada gambar
-
-    </div>
-
-    @endif
+    <div class="max-w-7xl mx-auto space-y-8">
 
 
-    <div class="p-8">
 
-        <div class="flex flex-wrap gap-3 mb-5">
 
-            <span class="bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm">
 
-                📂 {{ $berita->kategori->nama }}
+        {{-- HEADER --}}
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
 
-            </span>
 
-            <span class="bg-purple-100 text-purple-700 px-4 py-1 rounded-full text-sm">
 
-                👤 {{ $berita->user->name }}
+            <div>
 
-            </span>
+                <h1 class="text-3xl md:text-4xl font-black text-gray-900">
 
-            @if($berita->status=='publish')
+                    Detail Berita
 
-                <span class="bg-green-100 text-green-700 px-4 py-1 rounded-full text-sm">
+                </h1>
 
-                    ✅ Publish
 
-                </span>
+                <p class="mt-2 text-gray-500">
 
+                    Informasi lengkap berita website CMS.
+
+                </p>
+
+
+            </div>
+
+
+
+
+
+
+            {{-- BUTTON BACK --}}
+
+            <a href="{{ route('admin.berita.index') }}"
+                class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl bg-gray-900 text-white font-semibold shadow-lg hover:bg-gray-700 hover:-translate-y-1 transition duration-300">
+
+
+                ← Kembali Berita
+
+
+            </a>
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        {{-- MAIN CARD --}}
+
+        <article class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+
+
+
+
+
+
+
+            {{-- IMAGE HERO --}}
+
+            @if ($berita->gambar)
+
+
+
+                <div class="relative overflow-hidden group">
+
+
+
+                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="{{ $berita->judul }}"
+                        class="w-full h-72 sm:h-96 md:h-[520px] object-cover transition duration-700 group-hover:scale-110">
+
+
+
+
+
+
+                    {{-- OVERLAY --}}
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+
+
+
+
+
+
+
+
+                    {{-- TITLE IMAGE --}}
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8 md:p-12 text-white">
+
+
+
+
+
+
+                        <div class="flex flex-wrap gap-3 mb-5">
+
+
+
+
+
+                            {{-- KATEGORI --}}
+
+                            <span class="px-4 py-2 rounded-full bg-white/20 backdrop-blur-md text-sm font-semibold">
+
+
+                                📂
+
+                                {{ optional($berita->kategori)->nama ?? 'Tanpa Kategori' }}
+
+
+                            </span>
+
+
+
+
+
+
+
+
+
+                            {{-- STATUS --}}
+
+                            @if ($berita->status == 'publish')
+                                <span class="px-4 py-2 rounded-full bg-green-500/80 backdrop-blur-md text-sm font-semibold">
+
+
+                                    ✅ Publish
+
+
+                                </span>
+                            @else
+                                <span
+                                    class="px-4 py-2 rounded-full bg-yellow-500/80 backdrop-blur-md text-sm font-semibold">
+
+
+                                    📝 Draft
+
+
+                                </span>
+                            @endif
+
+
+
+
+
+                        </div>
+
+
+
+
+
+
+
+
+
+
+                        <h1 class="text-2xl sm:text-3xl md:text-5xl font-black leading-tight">
+
+
+                            {{ $berita->judul }}
+
+
+                        </h1>
+
+
+
+
+
+
+                    </div>
+
+
+
+                </div>
             @else
+                <div class="h-72 md:h-[520px] bg-gray-100 flex items-center justify-center text-gray-400 text-xl">
 
-                <span class="bg-yellow-100 text-yellow-700 px-4 py-1 rounded-full text-sm">
 
-                    📝 Draft
+                    📰 Tidak ada gambar
 
-                </span>
+
+                </div>
+
+
+
+
+
 
             @endif
 
-        </div>
 
 
-        <h2 class="text-4xl font-bold text-gray-800 mb-6">
-
-            {{ $berita->judul }}
-
-        </h2>
 
 
-        <div class="text-gray-500 mb-6 flex flex-wrap gap-6">
-
-            <span>
-
-                📅 Dibuat :
-                {{ $berita->created_at->format('d M Y H:i') }}
-
-            </span>
-
-            <span>
-
-                🔄 Diubah :
-                {{ $berita->updated_at->format('d M Y H:i') }}
-
-            </span>
-
-        </div>
 
 
-        <hr class="mb-6">
 
 
-        <div class="prose max-w-none leading-8 text-gray-700">
 
-            {!! nl2br(e($berita->isi)) !!}
+
+
+
+
+            {{-- DETAIL CONTENT --}}
+
+            <div class="p-6 sm:p-8 md:p-12">
+
+
+
+
+
+
+
+                {{-- INFORMATION --}}
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+
+
+
+
+
+                    <div class="flex items-center gap-3 bg-gray-50 rounded-2xl px-5 py-4">
+
+                        <span class="text-2xl">
+
+                            📅
+
+                        </span>
+
+
+                        <div>
+
+                            <p class="text-xs text-gray-400">
+
+                                Dibuat
+
+                            </p>
+
+
+                            <p class="font-semibold text-gray-700">
+
+
+                                {{ $berita->created_at->format('d M Y H:i') }}
+
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+
+
+                    <div class="flex items-center gap-3 bg-gray-50 rounded-2xl px-5 py-4">
+
+
+                        <span class="text-2xl">
+
+                            👤
+
+                        </span>
+
+
+
+                        <div>
+
+                            <p class="text-xs text-gray-400">
+
+                                Penulis
+
+                            </p>
+
+
+
+                            <p class="font-semibold text-gray-700">
+
+
+                                {{ optional($berita->user)->name ?? '-' }}
+
+
+                            </p>
+
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+                    <div class="flex items-center gap-3 bg-gray-50 rounded-2xl px-5 py-4">
+
+
+                        <span class="text-2xl">
+
+                            🔄
+
+                        </span>
+
+
+                        <div>
+
+                            <p class="text-xs text-gray-400">
+
+                                Update
+
+                            </p>
+
+
+                            <p class="font-semibold text-gray-700">
+
+
+                                {{ $berita->updated_at->format('d M Y H:i') }}
+
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+                <hr class="mb-8">
+
+
+
+
+
+
+
+                {{-- ARTICLE CONTENT --}}
+
+
+                <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+
+
+                    {!! nl2br(e($berita->isi)) !!}
+
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+        </article>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+            <a href="{{ route('admin.berita.edit', $berita) }}"
+                class="flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-gradient-to-r from-indigo-500 to-blue-600 text-white font-semibold shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300">
+
+                ✏️ Edit Berita
+
+            </a>
+
+
+            <form action="{{ route('admin.berita.destroy', $berita) }}" method="POST"
+                onsubmit="return confirm('Yakin ingin menghapus berita ini?')">
+
+                @csrf
+                @method('DELETE')
+
+                <button type="submit"
+                    class="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-gradient-to-r from-rose-500 to-red-600 text-white font-semibold shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300">
+
+                    🗑️ Hapus Berita
+
+                </button>
+
+            </form>
 
         </div>
 
     </div>
-
-</div>
-
-
-<div class="mt-8 flex gap-3">
-
-    <a href="{{ route('admin.berita.edit',$berita) }}"
-        class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow hover:shadow-xl transition-all duration-300">
-
-        ✏ Edit Berita
-
-    </a>
-
-
-    <form
-        action="{{ route('admin.berita.destroy',$berita) }}"
-        method="POST"
-        onsubmit="return confirm('Yakin ingin menghapus berita ini?')">
-
-        @csrf
-        @method('DELETE')
-
-        <button
-            class="px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-xl shadow hover:shadow-xl transition-all duration-300">
-
-            🗑 Hapus Berita
-
-        </button>
-
-    </form>
-
-</div>
 
 @endsection

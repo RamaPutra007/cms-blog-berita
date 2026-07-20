@@ -81,34 +81,6 @@ hover:bg-gray-100
 
         </div>
 
-
-
-
-
-
-
-
-        @if (session('success'))
-            <div class="
-bg-green-100
-border
-border-green-300
-text-green-700
-p-4
-rounded-xl
-">
-
-                {{ session('success') }}
-
-            </div>
-        @endif
-
-
-
-
-
-
-
         {{-- SEARCH --}}
 
         <div class="bg-white rounded-3xl shadow p-5">

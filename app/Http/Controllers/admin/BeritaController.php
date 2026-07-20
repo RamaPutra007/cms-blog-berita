@@ -118,13 +118,10 @@ class BeritaController extends Controller
      */
     public function show(Berita $berita)
     {
-
         $berita->load([
             'user',
             'kategori'
         ]);
-
-
 
         return view(
             'admin.berita.show',
@@ -146,7 +143,6 @@ class BeritaController extends Controller
             ->get();
 
 
-
         return view(
             'admin.berita.edit',
             compact(
@@ -155,7 +151,6 @@ class BeritaController extends Controller
             )
         );
     }
-
 
 
 

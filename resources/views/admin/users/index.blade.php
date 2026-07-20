@@ -32,22 +32,6 @@
 
         </div>
 
-
-
-
-        {{-- ALERT --}}
-        @if (session('success'))
-            <div class="bg-green-100 border border-green-300 text-green-700 px-5 py-4 rounded-xl">
-
-                ✅ {{ session('success') }}
-
-            </div>
-        @endif
-
-
-
-
-
         {{-- DESKTOP TABLE --}}
         <div class="hidden md:block bg-white rounded-3xl shadow-xl overflow-hidden">
 
