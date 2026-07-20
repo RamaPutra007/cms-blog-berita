@@ -83,22 +83,6 @@
 
                     {{-- ICON --}}
 
-                    <div class="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center mb-6">
-
-
-                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-
-                            <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                d="M15 12H3m12 0-4-4m4 4-4 4M17 7h2a2 2 0 012 2v6a2 2 0 01-2 2h-2" />
-
-                        </svg>
-
-
-                    </div>
-
-
-
-
                     <h2 class="text-3xl font-black text-gray-900">
                         Login Akun
                     </h2>

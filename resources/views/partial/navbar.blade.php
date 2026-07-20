@@ -7,10 +7,21 @@
             <!-- Logo -->
             <a href="{{ route('home') }}" class="flex items-center gap-3">
 
-                <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold">
-                    SI
-                </div>
+                <div
+                    class="w-14 h-14 rounded-full 
+        bg-white 
+        shadow-xl 
+        border-2 border-blue-100
+        flex items-center justify-center
+        overflow-hidden
+        group-hover:border-blue-500
+        transition duration-300">
 
+                    <img src="{{ asset('storage/profile/c.png') }}" alt="Sudiang Info"
+                        class="w-full h-full object-contain p-2
+            group-hover:scale-110 transition duration-300">
+
+                </div>
                 <div>
                     <h1 class="font-bold text-xl">
                         Sudiang Info
@@ -53,15 +64,12 @@
 
                 @guest
 
-                    <a href="{{ route('login') }}"
-                        class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg">
+                    <a href="{{ route('login') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg">
 
                         Login
 
                     </a>
-
                 @else
-
                     <a href="{{ route('dashboard') }}"
                         class="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg">
 
@@ -74,9 +82,7 @@
             </div>
 
             <!-- Hamburger -->
-            <button
-                @click="open = !open"
-                class="md:hidden">
+            <button @click="open = !open" class="md:hidden">
 
                 ☰
 
@@ -87,10 +93,7 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div
-        x-show="open"
-        x-transition
-        class="md:hidden bg-white border-t">
+    <div x-show="open" x-transition class="md:hidden bg-white border-t">
 
         <a href="{{ route('home') }}" class="block px-6 py-3">Beranda</a>
 
@@ -106,17 +109,13 @@
 
             @guest
 
-                <a href="{{ route('login') }}"
-                    class="block text-center bg-blue-600 text-white py-3 rounded-lg">
+                <a href="{{ route('login') }}" class="block text-center bg-blue-600 text-white py-3 rounded-lg">
 
                     Login
 
                 </a>
-
             @else
-
-                <a href="{{ route('dashboard') }}"
-                    class="block text-center bg-green-600 text-white py-3 rounded-lg">
+                <a href="{{ route('dashboard') }}" class="block text-center bg-green-600 text-white py-3 rounded-lg">
 
                     Dashboard
 

@@ -45,7 +45,19 @@ class HomeController extends Controller
 
     public function tentang()
     {
+        $jumlahBerita = Berita::where('status', 'publish')
+            ->count();
 
-        return view('tentang');
+        $jumlahArtikel = Artikel::where('status', 'publish')
+            ->count();
+
+        $jumlahKategori = Kategori::count();
+
+
+        return view('tentang', compact(
+            'jumlahBerita',
+            'jumlahArtikel',
+            'jumlahKategori'
+        ));
     }
 }

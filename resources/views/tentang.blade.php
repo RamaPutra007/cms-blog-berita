@@ -6,39 +6,64 @@
 
 
     {{-- HERO --}}
-    <section class="bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-16 md:py-24">
+    <section
+        class="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-100 py-20 md:py-32 animate-scroll">
 
-        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+
+        {{-- Background --}}
+        <div class="absolute -top-32 -left-32 w-96 h-96 bg-blue-400/30 blur-3xl rounded-full"></div>
+
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-indigo-400/20 blur-3xl rounded-full"></div>
+
+
+
+        <div class="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+
 
             <div class="max-w-4xl">
 
-                <span class="inline-flex px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold">
-                    TENTANG KAMI
+
+                <span
+                    class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm shadow-sm">
+
+                    🌐 TENTANG KAMI
+
                 </span>
 
 
-                <h1 class="mt-6 text-4xl sm:text-5xl lg:text-6xl font-black leading-tight text-gray-900">
 
-                    Tentang
-                    <span class="text-blue-600">
+
+                <h1 class="mt-8 text-4xl sm:text-5xl lg:text-7xl font-black leading-tight text-gray-900">
+
+
+                    Mengenal Lebih Dekat
+
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+
                         Sudiang Info
+
                     </span>
+
 
                 </h1>
 
 
-                <p class="mt-6 text-base sm:text-lg text-gray-600 leading-8 max-w-3xl">
 
-                    Sudiang Info merupakan portal berita dan blog digital
-                    yang menyajikan informasi terpercaya, artikel edukatif,
-                    serta berita terbaru mengenai masyarakat, pendidikan,
-                    teknologi, ekonomi, olahraga, dan berbagai informasi menarik lainnya.
+
+
+                <p class="mt-8 text-lg md:text-xl text-gray-600 leading-9 max-w-3xl">
+
+
+                    Portal berita digital yang menghadirkan informasi terpercaya,
+                    berita terbaru, serta artikel edukatif untuk masyarakat.
+
 
                 </p>
-
             </div>
 
+
         </div>
+
 
     </section>
 
@@ -46,65 +71,142 @@
 
 
 
+
+
     {{-- ABOUT --}}
-    <section class="py-16 md:py-24 bg-white">
+    <section class="py-20 bg-white animate-scroll">
+
 
         <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
-            <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-6 md:p-12">
 
 
-                <h2 class="text-center text-3xl md:text-5xl font-black text-blue-600 leading-tight mb-10 md:mb-14">
-
-                    Menyajikan Informasi Terpercaya
-                    <br class="hidden md:block">
-                    Untuk Semua
-
-                </h2>
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
 
 
 
-                <div class="grid lg:grid-cols-2 gap-10 md:gap-14 items-center">
+                <div class="relative">
 
 
-                    <div>
-
-                        <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?w=900"
-                            class="rounded-3xl shadow-xl w-full h-72 md:h-[450px] object-cover hover:scale-105 transition duration-500"
-                            alt="Sudiang Info">
-
-                    </div>
+                    <div class="absolute inset-0 bg-blue-600 rounded-[40px] rotate-6 opacity-20"></div>
 
 
 
-                    <div class="space-y-5 text-gray-700 text-base md:text-lg leading-8">
+                    <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?w=900"
+                        class="relative rounded-[40px] shadow-2xl w-full h-[350px] md:h-[500px] object-cover hover:scale-105 transition duration-500">
 
 
-                        <p>
-                            <strong>Sudiang Info</strong> adalah portal berita dan media blog yang bertujuan memberikan
-                            informasi cepat, akurat, dan terpercaya kepada masyarakat.
-                        </p>
+
+                </div>
 
 
-                        <p>
-                            Kami menghadirkan informasi mengenai
-                            <strong>
-                                berita terkini, pendidikan, teknologi, pemerintahan, ekonomi, olahraga, budaya, dan kegiatan
-                                masyarakat.
-                            </strong>
-                        </p>
 
 
-                        <p>
-                            Selain berita harian, Sudiang Info juga menyediakan artikel blog berupa tutorial, edukasi,
-                            opini, dan informasi menarik untuk menambah wawasan pembaca.
-                        </p>
 
 
-                        <p>
-                            Setiap konten melalui proses penyuntingan agar informasi yang diterima pembaca tetap berkualitas
-                            dan terpercaya.
-                        </p>
+                <div class="space-y-6">
+
+
+                    <span class="text-blue-600 font-bold uppercase tracking-widest">
+
+                        Sudiang Info
+
+                    </span>
+
+
+
+                    <h2 class="text-4xl md:text-5xl font-black text-gray-900">
+
+
+                        Media Informasi Modern Untuk Semua
+
+
+                    </h2>
+
+
+
+
+                    <p class="text-gray-600 text-lg leading-8">
+
+
+                        Sudiang Info merupakan portal berita dan blog digital
+                        yang menyediakan informasi cepat, akurat dan terpercaya.
+
+
+                    </p>
+
+
+
+
+                    <p class="text-gray-600 text-lg leading-8">
+
+
+                        Kami menghadirkan berita mengenai pendidikan,
+                        teknologi, ekonomi, olahraga, budaya, dan informasi masyarakat.
+
+
+                    </p>
+
+
+
+
+
+                    <div class="grid grid-cols-3 gap-5 pt-5">
+
+
+                        <div class="bg-blue-50 rounded-2xl p-5 text-center">
+
+                            <h3 class="text-3xl font-black">
+
+                                {{ $jumlahBerita ?? 0 }}
+
+                            </h3>
+
+                            <p class="text-gray-500 text-sm">
+
+                                Berita
+
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="bg-indigo-50 rounded-2xl p-5 text-center">
+
+                            <h3 class="text-3xl font-black">
+
+                                {{ $jumlahArtikel ?? 0 }}
+
+
+                            </h3>
+
+                            <p class="text-gray-500 text-sm">
+
+                                Artikel
+
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="bg-gray-100 rounded-2xl p-5 text-center">
+
+                            <h3 class="text-3xl font-black">
+
+                                CMS
+
+                            </h3>
+
+                            <p class="text-gray-500 text-sm">
+
+                                Digital
+
+                            </p>
+
+                        </div>
+
 
 
                     </div>
@@ -113,6 +215,7 @@
                 </div>
 
 
+
             </div>
 
 
@@ -125,27 +228,37 @@
 
 
 
+
+
+
     {{-- FITUR --}}
-    <section class="py-16 md:py-24 bg-gray-50">
+
+    <section class="py-20 bg-gray-50 animate-scroll">
 
 
         <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
 
-            <div class="text-center max-w-3xl mx-auto mb-12">
+            <div class="text-center mb-14">
 
 
-                <h2 class="text-3xl md:text-4xl font-black text-gray-900">
+                <h2 class="text-4xl md:text-5xl font-black">
+
                     Apa Yang Kami Sajikan?
+
                 </h2>
 
 
+
                 <p class="mt-4 text-gray-500">
-                    Sudiang Info menghadirkan berita, artikel, dan informasi bermanfaat dalam satu platform.
+
+                    Platform berita dengan berbagai fitur informasi.
+
                 </p>
 
 
             </div>
+
 
 
 
@@ -156,25 +269,25 @@
                     [
                         'icon' => '📰',
                         'title' => 'Berita Terbaru',
-                        'text' => 'Informasi nasional maupun daerah yang selalu diperbarui.',
+                        'text' => 'Informasi terbaru yang selalu diperbarui.',
                     ],
 
                     [
                         'icon' => '✍️',
-                        'title' => 'Blog Edukatif',
-                        'text' => 'Artikel tutorial, opini, dan informasi menarik.',
+                        'title' => 'Artikel Edukatif',
+                        'text' => 'Konten inspiratif dan menambah wawasan.',
                     ],
 
                     [
                         'icon' => '📂',
                         'title' => 'Kategori',
-                        'text' => 'Artikel tersusun berdasarkan kategori agar mudah ditemukan.',
+                        'text' => 'Informasi tersusun rapi berdasarkan kategori.',
                     ],
 
                     [
-                        'icon' => '🌐',
+                        'icon' => '🌎',
                         'title' => 'Informasi Publik',
-                        'text' => 'Media informasi yang bermanfaat bagi masyarakat.',
+                        'text' => 'Media informasi untuk masyarakat.',
                     ],
                 ];
 
@@ -183,33 +296,48 @@
 
 
 
+
+
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
 
+
                 @foreach ($features as $item)
-                    <div class="bg-white rounded-3xl p-7 shadow hover:shadow-xl hover:-translate-y-2 transition">
+                    <div
+                        class="bg-white rounded-3xl p-8 shadow hover:shadow-2xl hover:-translate-y-3 transition duration-300">
 
 
-                        <div class="text-5xl mb-5">
+                        <div class="text-5xl mb-6">
+
                             {{ $item['icon'] }}
+
                         </div>
 
 
-                        <h3 class="text-xl font-bold text-gray-900">
+
+                        <h3 class="text-xl font-bold">
+
                             {{ $item['title'] }}
+
                         </h3>
 
 
+
                         <p class="mt-3 text-gray-600 leading-7">
+
                             {{ $item['text'] }}
+
                         </p>
+
 
 
                     </div>
                 @endforeach
 
 
+
             </div>
+
 
 
         </div>
@@ -221,8 +349,12 @@
 
 
 
+
+
+
     {{-- VISI MISI --}}
-    <section class="py-16 md:py-24 bg-white">
+
+    <section id="visi" class="py-20 bg-white animate-scroll">
 
 
         <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -231,17 +363,23 @@
             <div class="grid lg:grid-cols-2 gap-8">
 
 
-                <div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-3xl p-8 md:p-12 text-white shadow-xl">
+
+                <div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-[35px] p-10 md:p-14 text-white shadow-xl">
 
 
-                    <h3 class="text-3xl font-black mb-5">
+                    <h3 class="text-4xl font-black mb-6">
+
                         Visi
+
                     </h3>
 
 
-                    <p class="leading-8 text-blue-50">
-                        Menjadi portal berita dan blog terpercaya yang memberikan informasi berkualitas bagi masyarakat
-                        Indonesia.
+
+                    <p class="text-blue-100 text-lg leading-8">
+
+                        Menjadi portal berita terpercaya yang memberikan informasi berkualitas dan bermanfaat bagi
+                        masyarakat.
+
                     </p>
 
 
@@ -251,29 +389,32 @@
 
 
 
-                <div class="bg-gray-100 rounded-3xl p-8 md:p-12">
+                <div class="bg-gray-100 rounded-[35px] p-10 md:p-14">
 
 
-                    <h3 class="text-3xl font-black mb-5">
+                    <h3 class="text-4xl font-black mb-6">
+
                         Misi
+
                     </h3>
 
 
-                    <ul class="space-y-4 text-gray-700">
+
+                    <ul class="space-y-4 text-gray-700 text-lg">
 
 
                         <li>
-                            ✔ Menyajikan berita yang akurat dan terpercaya.
+                            ✔ Menyajikan berita akurat dan terpercaya.
                         </li>
 
 
                         <li>
-                            ✔ Memberikan artikel blog yang edukatif.
+                            ✔ Memberikan artikel edukatif.
                         </li>
 
 
                         <li>
-                            ✔ Mendukung penyebaran informasi positif.
+                            ✔ Menyebarkan informasi positif.
                         </li>
 
 
@@ -288,6 +429,7 @@
                 </div>
 
 
+
             </div>
 
 
@@ -295,6 +437,81 @@
 
 
     </section>
+
+
+
+
+
+
+
+
+    {{-- SCRIPT ANIMASI SCROLL --}}
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+
+            const items = document.querySelectorAll(".animate-scroll");
+
+
+            const observer = new IntersectionObserver((entries) => {
+
+
+                entries.forEach(entry => {
+
+
+                    if (entry.isIntersecting) {
+
+
+                        entry.target.classList.remove(
+                            "opacity-0",
+                            "translate-y-10"
+                        );
+
+
+                        entry.target.classList.add(
+                            "opacity-100",
+                            "translate-y-0"
+                        );
+
+
+                        observer.unobserve(entry.target);
+
+
+                    }
+
+
+                });
+
+
+            }, {
+                threshold: 0.15
+            });
+
+
+
+
+            items.forEach(item => {
+
+
+                item.classList.add(
+                    "opacity-0",
+                    "translate-y-10",
+                    "transition-all",
+                    "duration-700",
+                    "ease-out"
+                );
+
+
+
+                observer.observe(item);
+
+
+            });
+
+
+        });
+    </script>
 
 
 
