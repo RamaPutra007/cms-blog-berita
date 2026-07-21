@@ -21,7 +21,7 @@
                 </h1>
 
 
-                <a href="{{ route('penulis.artikel.index') }}" class="px-5 py-3 rounded-xl bg-gray-200 hover:bg-gray-300">
+                <a href="{{ route('admin.artikel.index') }}" class="px-5 py-3 rounded-xl bg-gray-200 hover:bg-gray-300">
 
                     ← Kembali
 
@@ -34,16 +34,9 @@
 
 
 
-            <form action="{{ route('penulis.artikel.store') }}" method="POST" enctype="multipart/form-data">
-
-
+            <form action="{{ route('admin.artikel.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-
-
                 @include('penulis.artikel.form')
-
-
-
                 <button class="mt-8 w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold">
 
 

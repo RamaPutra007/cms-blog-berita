@@ -147,76 +147,16 @@
 
                     </p>
 
-
-
-
-
-                    <div class="grid grid-cols-3 gap-5 pt-5">
-
-
-                        <div class="bg-blue-50 rounded-2xl p-5 text-center">
-
-                            <h3 class="text-3xl font-black">
-
-                                {{ $jumlahBerita ?? 0 }}
-
-                            </h3>
-
-                            <p class="text-gray-500 text-sm">
-
-                                Berita
-
-                            </p>
-
-                        </div>
-
-
-
-                        <div class="bg-indigo-50 rounded-2xl p-5 text-center">
-
-                            <h3 class="text-3xl font-black">
-
-                                {{ $jumlahArtikel ?? 0 }}
-
-
-                            </h3>
-
-                            <p class="text-gray-500 text-sm">
-
-                                Artikel
-
-                            </p>
-
-                        </div>
-
-
-
-                        <div class="bg-gray-100 rounded-2xl p-5 text-center">
-
-                            <h3 class="text-3xl font-black">
-
-                                CMS
-
-                            </h3>
-
-                            <p class="text-gray-500 text-sm">
-
-                                Digital
-
-                            </p>
-
-                        </div>
-
-
-
-                    </div>
-
-
                 </div>
-
-
-
+                
             </div>
+
+
+        </div>
+
+
+
+        </div>
 
 
         </div>
