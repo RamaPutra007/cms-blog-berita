@@ -13,23 +13,6 @@
 
         </button>
 
-
-        {{-- Nama + Foto Profil --}}
-        <div class="flex items-center gap-2">
-
-            <span class="block truncate text-xs font-semibold text-slate-700">
-
-                {{ auth()->user()->name }}
-
-            </span>
-
-
-            <img src="{{ auth()->user()->foto ? asset('storage/profile/' . auth()->user()->foto) : asset('images/default-user.png') }}"
-                alt="{{ auth()->user()->name }}"
-                class="w-9 h-9 rounded-full object-cover border-2 border-blue-500 shadow">
-
-        </div>
-
     </div>
 
 </nav>

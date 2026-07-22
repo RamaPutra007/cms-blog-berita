@@ -192,53 +192,15 @@
                 {{-- IMAGE --}}
 
                 <div class="relative">
-
-
                     <div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-[40px] p-5 shadow-2xl">
-
-
                         <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e"
                             class="rounded-[30px] w-full h-[420px] object-cover">
-
-
                     </div>
-
-
-
-
-
-                    <div class="absolute top-8 left-8 bg-white shadow-xl rounded-2xl px-5 py-4">
-
-
-                        <p class="font-bold">
-
-                            ✅ Terverifikasi
-
-                        </p>
-
-
-                        <p class="text-sm text-gray-500">
-
-                            Update Setiap Hari
-
-                        </p>
-
-
-                    </div>
-
-
                 </div>
-
-
-
 
             </div>
 
-
-
         </div>
-
-
 
     </section>
 
@@ -501,7 +463,8 @@
 
 
                         @if ($item->gambar)
-                            <img src="{{ asset('storage/' . $item->gambar) }}" class="w-full h-52 object-cover rounded-2xl">
+                            <img src="{{ asset('storage/' . $item->gambar) }}"
+                                class="w-full h-52 object-cover rounded-2xl">
                         @endif
 
 

@@ -26,40 +26,6 @@
             </div>
 
         </div>
-
-        {{-- Kanan --}}
-        <div class="flex items-center gap-4">
-
-            {{-- User --}}
-            <div class="flex items-center gap-3">
-
-                <div
-                    class="w-11 h-11 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center font-bold">
-
-                    {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
-
-                </div>
-
-                <div class="hidden md:block">
-
-                    <h2 class="font-semibold">
-
-                        {{ auth()->user()->name }}
-
-                    </h2>
-
-                    <p class="text-sm text-gray-500">
-
-                        Administrator
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
     </div>
 
 </header>

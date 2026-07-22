@@ -88,11 +88,6 @@
     {{-- User --}}
     <div class="flex items-center gap-3 px-6 py-5 border-b border-slate-800">
 
-        <img src="{{ auth()->user()->foto
-            ? asset('storage/profile/' . auth()->user()->foto)
-            : 'https://ui-avatars.com/api/?name=' . urlencode(auth()->user()->name) }}"
-            class="w-12 h-12 rounded-full object-cover border-2 border-blue-500">
-
         <div>
 
             <h2 class="font-semibold">
