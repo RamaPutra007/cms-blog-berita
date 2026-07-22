@@ -2,6 +2,7 @@
 
 @section('title', 'Dashboard Admin')
 
+
 @section('content')
 
     <div class="space-y-8">
@@ -14,11 +15,11 @@
                 <div>
 
                     <h1 class="text-3xl sm:text-4xl font-bold">
-                        👋 Dashboard Admin
+                        👋 Selamat Datang Admin
                     </h1>
 
                     <p class="text-blue-100 mt-2 text-sm sm:text-base">
-                        Kelola seluruh sistem CMS Blog Berita Anda.
+                        Kelola seluruh sistem CMS Berita dan Artikel Berita Anda.
                     </p>
 
                 </div>

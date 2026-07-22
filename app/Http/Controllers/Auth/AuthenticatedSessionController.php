@@ -28,7 +28,8 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        return redirect()->intended(route('dashboard'))
+            ->with('login_success', 'Selamat datang kembali di Dashboard Sudiang Info 👋');
     }
 
     /**
@@ -42,6 +43,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect()->route('home')
+            ->with('logout_success', 'Anda telah berhasil keluar dari sistem.');
     }
 }

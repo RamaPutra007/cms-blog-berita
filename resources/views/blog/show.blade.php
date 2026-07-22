@@ -27,10 +27,6 @@ shadow-xl
 overflow-hidden
 ">
 
-
-
-
-
                 {{-- GAMBAR --}}
 
                 @if ($artikel->gambar)
@@ -573,12 +569,6 @@ text-sm
 
 
                                                         </div>
-
-
-
-
-
-
 
                                                         <div>
 

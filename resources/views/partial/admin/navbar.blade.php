@@ -13,18 +13,6 @@
 
             </button>
 
-            <div>
-
-                <h1 class="text-2xl font-bold text-slate-800">
-                    Dashboard Admin
-                </h1>
-
-                <p class="text-sm text-gray-500">
-                    Kelola seluruh sistem CMS
-                </p>
-
-            </div>
-
         </div>
     </div>
 

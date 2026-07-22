@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\KategoriRequest;
 use App\Models\Kategori;
+use Illuminate\Support\Str;
 
 class KategoriController extends Controller
 {
@@ -57,6 +59,10 @@ class KategoriController extends Controller
 
     public function destroy(Kategori $kategori)
     {
-        //
+        $kategori->delete();
+
+        return redirect()
+            ->route('admin.kategori.index')
+            ->with('success', 'Kategori berhasil dihapus.');
     }
 }

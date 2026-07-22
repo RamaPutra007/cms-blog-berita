@@ -88,6 +88,7 @@
     {{-- User --}}
     <div class="flex items-center gap-3 px-6 py-5 border-b border-slate-800">
 
+
         <div>
 
             <h2 class="font-semibold">

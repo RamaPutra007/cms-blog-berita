@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kategori;
+use App\Http\Requests\KategoriRequest;
 
 class KategoriController extends Controller
 {

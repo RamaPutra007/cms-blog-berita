@@ -37,25 +37,9 @@
 
                     <h1 class="text-3xl sm:text-4xl font-bold">
 
-                        ✍️ Dashboard Penulis
+                        Selamat Datang {{ auth()->user()->name }}
 
                     </h1>
-
-
-                    <p class="
-                mt-2
-                text-green-100
-                ">
-
-                        Selamat datang kembali,
-
-                        <span class="font-semibold">
-
-                            {{ auth()->user()->name }}
-
-                        </span>
-
-                    </p>
 
 
                 </div>

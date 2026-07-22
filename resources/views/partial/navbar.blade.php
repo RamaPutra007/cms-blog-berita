@@ -43,10 +43,10 @@
 
                 <a href="{{ route('berita.index') }}" class="hover:text-blue-600 transition">
                     Berita
-                </a>
+                </a> 
 
                 <a href="{{ route('blog.index') }}" class="hover:text-blue-600 transition">
-                    Blog
+                    Artikel
                 </a>
 
                 <a href="{{ route('kategori.index') }}" class="hover:text-blue-600 transition">
