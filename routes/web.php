@@ -68,19 +68,19 @@ Route::get('/tentang', [HomeController::class, 'tentang'])
 
 
 Route::get(
-    '/blog',
+    '/artikel',
     [BlogController::class, 'index']
 )->name('blog.index');
 
 
 Route::get(
-    '/blog/{artikel:slug}',
+    '/artikel/{artikel:slug}',
     [BlogController::class, 'show']
 )->name('blog.show');
 
 
 Route::post(
-    '/blog/{artikel:slug}/komentar',
+    '/artikel/{artikel:slug}/komentar',
     [BlogController::class, 'komentar']
 )->name('blog.komentar');
 

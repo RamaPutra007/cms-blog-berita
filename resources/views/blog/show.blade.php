@@ -403,9 +403,9 @@ space-y-8
 
 
                     @forelse(
-    $artikel->komentars->where('parent_id',null)
-    as $komentar
-    )
+        $artikel->komentars->where('parent_id',null)
+        as $komentar
+        )
 
 
 
