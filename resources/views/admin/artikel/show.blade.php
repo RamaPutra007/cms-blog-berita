@@ -7,7 +7,7 @@
         <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
             {{-- GAMBAR --}}
             @if ($artikel->gambar)
-                <img src="{{ asset('storage/' . $artikel->gambar) }}" class="w-full h-96 object-cover">
+                <img src="{{ Storage::url($artikel->gambar) }}" class="w-full h-96 object-cover">
             @else
                 <div class="h-96 bg-gray-100 flex items-center justify-center text-gray-400">
                     Tidak ada gambar

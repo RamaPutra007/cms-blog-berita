@@ -92,7 +92,7 @@
 
 
                         @if ($berita->gambar)
-                            <img src="{{ asset('storage/' . $berita->gambar) }}" class="w-full h-56 object-cover">
+                            <img src="{{ Storage::url($berita->gambar) }}" class="w-full h-56 object-cover">
                         @else
                             <div class="h-56 bg-gray-200 flex items-center justify-center">
 
@@ -226,7 +226,7 @@ bg-blue-100 text-blue-700 text-sm">
 
 
                             @if ($artikel->gambar)
-                                <img src="{{ asset('storage/' . $artikel->gambar) }}"
+                                <img src="{{ Storage::url($artikel->gambar) }}"
                                     class="rounded-2xl w-full h-52 object-cover">
                             @endif
 

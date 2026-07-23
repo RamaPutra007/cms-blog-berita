@@ -49,7 +49,7 @@
 
 
                         <img id="previewFoto"
-                            src="{{ auth()->user()->foto ? asset('storage/profile/' . auth()->user()->foto) : 'https://ui-avatars.com/api/?name=' . auth()->user()->name }}"
+                            src="{{ auth()->user()->foto ? Storage::url('profile/' . auth()->user()->foto) : 'https://ui-avatars.com/api/?name=' . auth()->user()->name }}"
                             class="w-36 h-36 rounded-full object-cover shadow-xl border-4 border-white">
 
 

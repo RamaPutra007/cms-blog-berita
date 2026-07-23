@@ -21,7 +21,7 @@
 
             {{-- GAMBAR --}}
             @if ($artikel->gambar)
-                <img src="{{ asset('storage/' . $artikel->gambar) }}"
+                <img src="{{ Storage::url($artikel->gambar) }}"
                     class="
                 w-full
                 h-64

@@ -56,7 +56,7 @@
                 <div class="relative group overflow-hidden">
 
 
-                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="{{ $berita->judul }}"
+                    <img src="{{ Storage::url($berita->gambar) }}" alt="{{ $berita->judul }}"
                         class="w-full h-72 sm:h-96 md:h-[500px] object-cover transition duration-700 group-hover:scale-110">
 
 

@@ -57,7 +57,7 @@ transition
 
 
                         @if ($berita->gambar)
-                            <img src="{{ asset('storage/berita' . $berita->gambar) }}" class="w-full h-56 object-cover">
+                            <img src="{{ Storage::url($berita->gambar) }}" class="w-full h-56 object-cover">
                         @else
                             <div class="h-56 bg-gray-200 flex items-center justify-center">
 

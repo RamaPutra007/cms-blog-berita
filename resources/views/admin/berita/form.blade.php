@@ -103,7 +103,7 @@
                 </p>
 
 
-                <img src="{{ asset('storage/' . $berita->gambar) }}"
+                <img src="{{ Storage::url($berita->gambar) }}"
                     class="
                     w-48
                     h-32

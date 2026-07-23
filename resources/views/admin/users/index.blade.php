@@ -91,7 +91,7 @@
 
                                 @if($user->foto)
 
-                                    <img src="{{ asset('storage/profile/'.$user->foto) }}" class="w-12 h-12 rounded-full object-cover border-2 border-blue-500">
+                                    <img src="{{ Storage::url('profile/'.$user->foto) }}" class="w-12 h-12 rounded-full object-cover border-2 border-blue-500">
 
                                 @else
 
@@ -274,7 +274,7 @@
                 @if($user->foto)
 
 
-                    <img src="{{ asset('storage/profile/'.$user->foto) }}" class="w-14 h-14 rounded-full object-cover border-2 border-blue-500">
+                    <img src="{{ Storage::url('profile/'.$user->foto) }}" class="w-14 h-14 rounded-full object-cover border-2 border-blue-500">
 
 
                 @else

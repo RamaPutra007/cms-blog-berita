@@ -64,7 +64,7 @@ overflow-hidden hover:shadow-xl transition">
 
 
                         @if ($artikel->gambar)
-                            <img src="{{ asset('storage/' . $artikel->gambar) }}" class="w-full h-56 object-cover">
+                            <img src="{{ Storage::url($artikel->gambar) }}" class="w-full h-56 object-cover">
                         @else
                             <div class="h-56 bg-gray-200 flex items-center justify-center">
 

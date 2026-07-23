@@ -91,7 +91,7 @@
 
 
         @if (isset($berita) && $berita->gambar)
-            <img src="{{ asset('storage/' . $berita->gambar) }}" class="mt-4 w-40 h-32 object-cover rounded-xl">
+            <img src="{{ Storage::url($berita->gambar) }}" class="mt-4 w-40 h-32 object-cover rounded-xl">
         @endif
 
 
