@@ -38,7 +38,7 @@ overflow-hidden
 
 
                 @if ($berita->gambar)
-                    <img src="{{ Storage::url($berita->gambar) }}" alt="{{ $berita->judul }}"
+                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="{{ $berita->judul }}"
                         class="
 w-full
 h-64

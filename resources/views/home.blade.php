@@ -348,7 +348,7 @@
 
 
                         @if ($item->gambar)
-                            <img src="{{ Storage::url($item->gambar) }}" class="w-full h-56 object-cover">
+                            <img src="{{ asset('storage/' . $item->gambar) }}" class="w-full h-56 object-cover">
                         @endif
 
 
@@ -463,7 +463,7 @@
 
 
                         @if ($item->gambar)
-                            <img src="{{ Storage::url($item->gambar) }}"
+                            <img src="{{ asset('storage/' . $item->gambar) }}"
                                 class="w-full h-52 object-cover rounded-2xl">
                         @endif
 

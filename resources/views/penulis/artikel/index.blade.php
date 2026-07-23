@@ -186,7 +186,7 @@ transition
                     {{-- GAMBAR --}}
 
                     @if ($item->gambar)
-                        <img src="{{ Storage::url($item->gambar) }}" class="
+                        <img src="{{ asset('storage/' . $item->gambar) }}" class="
 w-full
 h-52
 object-cover

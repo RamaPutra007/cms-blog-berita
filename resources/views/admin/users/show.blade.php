@@ -38,7 +38,7 @@
 
 
                         @if ($user->foto)
-                            <img src="{{ Storage::url('profile/' . $user->foto) }}" alt="{{ $user->name }}"
+                            <img src="{{ asset('storage/' . 'profile/' . $user->foto) }}" alt="{{ $user->name }}"
                                 class="w-full h-full object-cover">
                         @else
                             <span class="text-5xl font-black text-white">

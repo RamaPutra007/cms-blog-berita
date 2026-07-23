@@ -218,7 +218,7 @@
 
 
 
-                <img src="{{ Storage::url($artikel->gambar) }}"
+                <img src="{{ asset('storage/' . $artikel->gambar) }}"
                     class="
                     w-full
                     sm:w-52

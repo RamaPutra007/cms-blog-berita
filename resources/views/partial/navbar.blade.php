@@ -17,7 +17,7 @@
         group-hover:border-blue-500
         transition duration-300">
 
-                    <img src="{{ Storage::url('profile/c.png') }}" alt="Sudiang Info"
+                    <img src="{{ asset('storage/' . 'profile/c.png') }}" alt="Sudiang Info"
                         class="w-full h-full object-contain p-2
             group-hover:scale-110 transition duration-300">
 
